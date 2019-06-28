@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.lah.houseDao">
+	<select id="queryId" resultType="com.entity.House">
+		select * from house h 
+		join homedetails hd on h.homedid=hd.homedid 
+		join homephoto hp on h.hpid=hp.hpid
+		join customers c on h.hid=c.cid
+		where hd.homedid=1
+	</select>
+	<!-- 前台房屋详情信息展示 -->
+	<select id="queryAll" resultType="Map">
+		select * from house hou  LEFT JOIN customers cus  on hou.cid=cus.cid  
+			 LEFT JOIN homedetails h  on hou.homedid=h.homedid  
+			 LEFT JOIN provinces p  on h.provinceId=p.provinceid  
+			 LEFT JOIN cities c  on c.cityid=h.cityid  
+			 LEFT JOIN areas a  on a.areaid=h.areaid  
+			 LEFT JOIN housetype ht   on ht.houseTypeId=h.houseTypeId  
+			 LEFT JOIN rent r   on r.rentid=h.rentid  
+			 LEFT JOIN apartments ap  on ap.Apartmentsid=h.Apartmentsid  
+			 LEFT JOIN toilettype t   on t.toiletTypeId=h.toiletTypeId  
+			 LEFT JOIN pricerule pri  on hou.pruleId=pri.pruleId  
+			 LEFT JOIN homephoto photo on hou.hpid=photo.hpid
+			 join bed  b on b.bedid=h.bedid
+			join bedtype bt on bt.bedTypeId=b.bedTypeId
+			
+	</select>
+</mapper>

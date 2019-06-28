@@ -16,7 +16,15 @@ public class HtmlController {
     @RequestMapping("queryEmp")
     public String queryEmp(){
         return "back/queryEmp";
-    } 
+    }
+    @RequestMapping("queryApart")
+    public String queryApart(){
+        return "back/queryApart";
+    }
+    @RequestMapping("queryhtype")
+    public String queryhtype(){
+        return "back/houseType";
+    }
     @RequestMapping("queryRent")
     public String queryRent(){
         return "back/Rent";
@@ -37,8 +45,6 @@ public class HtmlController {
     public String hostorderhtml(){
         return "back/hostorder";
     }
-    
-    
     
     
     @RequestMapping("indexhtml")
