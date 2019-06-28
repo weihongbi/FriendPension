@@ -29,6 +29,14 @@ public class HtmlController {
     public String rolsManagerhtml(){
         return "back/rolsManager";
     } 
+    @RequestMapping("housewhtml")
+    public String housewhtml(){
+        return "back/housew";
+    }    
+    @RequestMapping("hostorderhtml")
+    public String hostorderhtml(){
+        return "back/hostorder";
+    }
     
     
     

@@ -1,6 +1,6 @@
 package com.entity;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Hostorder {
 	private int hoid;
@@ -12,11 +12,12 @@ public class Hostorder {
 	private int states;
 	private Date Orderstime;
 	private Date checkouttime;
+	private int price;
 	public Hostorder() {
 		super();
-	}
+	}	
 	public Hostorder(int hoid, int cid, Date checktime, Date leavetime, int money, int hid, int states, Date orderstime,
-			Date checkouttime) {
+			Date checkouttime, int price) {
 		super();
 		this.hoid = hoid;
 		this.cid = cid;
@@ -27,7 +28,9 @@ public class Hostorder {
 		this.states = states;
 		Orderstime = orderstime;
 		this.checkouttime = checkouttime;
+		this.price = price;
 	}
+
 	public int getHoid() {
 		return hoid;
 	}
@@ -39,6 +42,12 @@ public class Hostorder {
 	}
 	public void setCid(int cid) {
 		this.cid = cid;
+	}	
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
 	}
 	public Date getChecktime() {
 		return checktime;
