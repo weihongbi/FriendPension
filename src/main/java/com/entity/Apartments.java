@@ -2,6 +2,7 @@ package com.entity;
 
 public class Apartments {
 	private int Apartmentsid;
+	private int bedroom;
 	private int parlor;
 	private int toilet;
 	private int cookhouse;
@@ -9,14 +10,15 @@ public class Apartments {
 	public Apartments() {
 		super();
 	}
-	public Apartments(int apartmentsid, int parlor, int toilet, int cookhouse, int balcony) {
-		super();
-		Apartmentsid = apartmentsid;
-		this.parlor = parlor;
-		this.toilet = toilet;
-		this.cookhouse = cookhouse;
-		this.balcony = balcony;
+	
+	public int getBedroom() {
+		return bedroom;
 	}
+
+	public void setBedroom(int bedroom) {
+		this.bedroom = bedroom;
+	}
+
 	public int getApartmentsid() {
 		return Apartmentsid;
 	}
@@ -49,8 +51,8 @@ public class Apartments {
 	}
 	@Override
 	public String toString() {
-		return "Apartments [Apartmentsid=" + Apartmentsid + ", parlor=" + parlor + ", toilet=" + toilet + ", cookhouse="
-				+ cookhouse + ", balcony=" + balcony + "]";
+		return "Apartments [Apartmentsid=" + Apartmentsid + ", bedroom=" + bedroom + ", parlor=" + parlor + ", toilet="
+				+ toilet + ", cookhouse=" + cookhouse + ", balcony=" + balcony + "]";
 	}
 	
 	
