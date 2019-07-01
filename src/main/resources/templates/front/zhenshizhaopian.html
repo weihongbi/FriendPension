@@ -1,0 +1,554 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+                    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="renderer" content="webkit">
+<meta name="keywords" content=""/>
+<meta name="description" content="" />
+<link rel="shortcut icon" href="https://www.xiaozhu.com/favicon.ico" type="image/vnd.microsoft.icon">
+<link rel="icon" href="https://www.xiaozhu.com/favicon.ico" type="image/vnd.microsoft.icon">
+<title>发布您的房间</title>        <link rel="stylesheet" type="text/css" href="//jci.xiaozhustatic1.com/e19061701/xzcss?css=base,header,footer,publishRoomV2,photoScroll,jquery-ui,nyroModal,mysite" />
+    </head>
+    <body>
+         <div class="header height56">
+         <div class="top"></div>
+
+<div class="detail_wrapper">
+    <div class="detail_head clearfix">
+        <a href="http://www.xiaozhu.com" class="xz_logo_detail">小猪</a><span class="slogan_v2 slogan_black"></span>
+        <ul class="nav_R nav_commen">
+                        <input type="hidden" value="landlord" id="userCurrentRole"/>
+            <input type="hidden" value="106084124101" id="loginUserId"/>
+                        <li class="current">
+                <a href="#ongo" class="openTri_R" rel="nofollow"></a>
+                <div class="head_pop top40">
+                    <div class="pop_column">
+                        <a class="pop_T" href="http://www.xiaozhu.com/xzweb.php?op=FangDong_Index">房东中心</a>
+                        <span>
+                            <a class="fl" href="http://www.xiaozhu.com/xz_web2/order/pages/landlord/orderList.html">订单管理</a>
+                            <a class="fr" href="http://www.xiaozhu.com/xzweb.php?op=FangDong_SettlementInfo">结算统计</a>
+                        </span>
+                        <span>
+                            <a class="fl" href="http://www.xiaozhu.com/xzweb.php?op=FangDong_ShowLetter">聊天记录</a>
+                            <a class="fr" href="http://www.xiaozhu.com/xzweb.php?op=FangDong_Comment&filterType=waitComment&fkCmtFilter=all">我的点评</a>
+                        </span>
+                        <span>
+                            <a class="fl" href="http://www.xiaozhu.com/xzweb.php?op=FangDong_MyRooms">房源信息</a>
+                            <a class="fr" href="http://www.xiaozhu.com/xzweb.php?op=FangDong_MyRentCalendarList">价格房态</a>
+                        </span>
+                        <span>
+                            <a class="fl" href="http://www.xiaozhu.com/xzweb.php?op=FD_DiaryList">短租日记</a>
+                            <a class="fr" href="http://www.xiaozhu.com/xzweb.php?op=FangDong_UserInfo">个人资料</a>
+                        </span>
+                    </div>
+                    <div class="pop_column">
+                        <a class="pop_T pop_bor" href="http://www.xiaozhu.com/xzweb.php?op=FangKe_Index">房客中心</a>
+                        <span>
+                            <a class="fl" href="http://www.xiaozhu.com/xz_web2/order/pages/lodger/list.html">我的订单</a>
+                            <a class="fr" href="http://www.xiaozhu.com/xzweb.php?op=FangKe_ShowLetter">聊天记录</a>
+                        </span>
+                        <span>
+                            <a class="fl" href="http://www.xiaozhu.com/xzweb.php?op=FangKe_Comment">我的点评</a>
+                            <a class="fr" href="http://www.xiaozhu.com/xzweb.php?op=FangKe_UserInfo">个人资料</a>
+                        </span>
+                        <span class="textCt"><a href="http://www.xiaozhu.com/logout" id="IM-Logout">退出</a></span>
+                    </div>
+                </div>
+            </li>
+                                    <li class="current">
+                <a href="#ongo" class="openTri_R">短租指南</a>
+                <div class="head_pop width_58 top40">
+                    <div class="pop_column">
+                        <span><a class="fl" href="http://www.xiaozhu.com/xzweb.php?op=Help_UserGuide&type=tenant">房客指南</a><a class="fr" href="http://www.xiaozhu.com/xzweb.php?op=Help_UserGuide&type=landlord">房东指南</a></span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="#ongo" class="icon_iphone">手机小猪</a>
+                  <div class="head_pop w_120 top40">
+                   <a href="http://www.xiaozhu.com/appdownload/fk"  target="_blank">了解更多</a>
+              </div>
+            </li>
+                        <li><a rel="nofollow" data-href="http://www.xiaozhu.com/publish" class="btn_free" id = "Pub_Btn">免费发布房源</a></li>
+                    </ul>
+    </div>
+<div id="regSuccessDialog" class="reg_success_box login_register_box" style="display:none;">
+    <div class="">
+        <div class="r_colsed_1" id="closeRegSuccDialogBtn"><span></span></div>
+        <div id="regSuccInfo">
+        </div>
+    </div>
+</div></div>            </div>
+            <div class='h_top_box'>
+                <div class="h_step_box">
+                                        <ul class="clearfix">
+                        <li></li>                        <li></li>                        <li></li>                                            </ul>
+                                        <div class="h_step_cur h_pos1">
+                                                <a href="http://localhost:8081/fabufangyuan/findAll" class="h_step1_cur"><span></span></a>
+                                                <p>房源信息</p>
+                    </div>
+                    <div class="h_step_cur h_pos2">
+                                                <a href="http://localhost:8081/fabufangyuan/houseDepict" class="h_step2_cur"><span></span></a>
+                                                <p>房源描述</p>
+                    </div>
+                    <div class="h_step_cur h_pos3">
+                                                <a href="http://localhost:8081/fabufangyuan/matingqueryAll" class="h_step2_cur"><span></span></a>
+                                                <p>配套设施</p>
+                    </div>
+                    <div class="h_step h_pos4">
+                                                <span class="h_step4_cur"></span>
+                                                <p>真实照片</p>
+                    </div>
+                    <div class="h_step h_pos5">
+                                                <span class="h_step5"></span>
+                                                <p>价格规则</p>
+                    </div>
+                </div>
+            </div>
+                        <input type="hidden" id="upi_imgurls"  name="upi_imgurls" value=""/>
+<input type="hidden" id="upi_mainimageurl" name="upi_mainimageurl"  value=""/>
+<input type="hidden" id="degreesParam"  name="degreesParam" value=""/>
+<input type="hidden" value="" id="room_type"/>
+<input type="hidden" id="isLodgeunitShiPai" value="0"/>
+<input type="hidden" id="isNewLodgeunit" value="1"/>
+    
+    <div class="showDemoPicture" style="display: block;">
+        <!--<img class="h_img" alt="" src="images/pubsysV2/h_pic1.png" style="display: none" id="bedroomDemoPicture">-->
+        <!--<img class="h_img" alt="" src="images/pubsysV2/h_pic1.png" style="display: none" id="livingrooomDemoPicture">-->
+        <!--<img class="h_img" alt="" src="mages/pubsysV2/h_pic3.png" style="display: none" id="bathroomDemoPicture">-->
+        <!--<img class="h_img" alt="" src="images/pubsysV2/h_pic4.png" style="display: none" id="kitchenDemoPicture">-->
+        <!--<img class="h_img" alt="" src="images/pubsysV2/h_pic1.png" style="display: none" id="othersDemoPicture">-->
+    </div>
+
+
+    <div class="h_wrap">
+                                <h4 class="h_tit">
+            <div style="float: left;">房源照片</div>
+            <div style="float: right;">
+                <div style="float:left;color: #ff0000;margin-right: 35px;display: none" id="pictureWarningTip"><i class="tip_alert"></i><span>照片数量太少，无法排序</span></div>
+            </div>
+
+        </h4>
+                <div style="display: block;" id="pictureTypeModules">
+        <div class="h_pic_tip">请不要上传修改痕迹明显、拉伸变形、有水印、有联系方式或品牌宣传等内容的照片。<br/>
+        <span style="color: #ff4081;">请认真查看照片范例和要求说明，避免因为审核不通过而耽误上线时间。</span></div>
+        <div class="h_pic_list clearfix filesInputNew" id="group_bedroom">
+            <span style="font-weight: bold">卧室：</span>
+            <p id="bedroomDesc" style="color: #757575;">
+                                根据你填写的户型和床铺信息，必须上传<span style="color: #ff4081">1间卧室和3张床铺</span>的照片。请确保<span style="color: #ff4081">床单、枕头展示齐全</span>
+             </p>
+         <form name="form0" id="form0" method="post" enctype="multipart/form-data" action="##">
+			  <div class="input-file-box">
+			    	<input type="file" class="file-input" id="file0" multiple="multiple" name="bedroom"/>
+			    上传图片
+			  </div>
+			  <ul id="imgList">
+			    <li><img src="" alt=""/></li>
+			  </ul>
+		</form>
+        </div>
+        <div class="h_pic_list clearfix filesInputNew" id="group_livingroom" type="livingroom">
+            <span style="font-weight: bold">客厅：</span>
+            <p style="color: #757575;">建议上传。站在厅角拍摄，视野会更广。<span class="showDemo cursorPointer" data-value="livingroom" data-src="images/pubsysV2/pubsys_v37livingroom.jpg" data-desc="站在厅角拍摄，视野会更广">范例></span></p>
+         <form name="form0" id="form1" method="post" enctype="multipart/form-data" action="../homephoto/updateParlor">
+			  <div class="input-file-box">
+			    	<input type="file" class="file-input"  id="file1" multiple="multiple" name="parlor" />
+			    上传图片
+			  </div>
+			  <ul id="imgList1">
+			    <li><img src="" alt=""/></li>
+			  </ul>
+		</form>
+        </div>
+
+
+        <div class="h_pic_list clearfix filesInputNew" id="group_bathroom" >
+            <span style="font-weight: bold">卫生间：</span>
+            <p  style="color: #757575;">必须上传卫生间照片。请确保<span style="color: #ff4081;">马桶卫浴、地面细节完整</span>。<span class="showDemo cursorPointer" data-value="bathroom" data-src="images/pubsysV2/pubsys_v37bathroom.jpg" data-desc="请确保马桶卫浴、地面细节完整">范例></span></p>
+            <form name="form0" id="form2" method="post" enctype="multipart/form-data" action="##">
+			  <div class="input-file-box">
+			    	<input type="file" class="file-input"  id="file2" multiple="multiple" name="toilet" />
+			    上传图片
+			  </div>
+			  <ul id="imgList2">
+			    <li><img src="" alt=""/></li>
+			  </ul>
+		</form>
+        </div>
+
+
+        <div class="h_pic_list clearfix filesInputNew" id="group_kitchen" type="kitchen">
+            <span style="font-weight: bold">厨房：</span>
+            <p id="kitchenDesc"  style="color: #757575;">
+                                                建议上传。<span class="showDemo" data-value="kitchen" data-src="images/pubsysV2/pubsys_v37kitchen.jpg" data-desc="请确保灶具、台面完整">范例></span>
+                                <input type="hidden" id="isNeedKitchenPicture" value="no">
+            </p>
+            <form name="form0" id="form3" method="post" enctype="multipart/form-data" action="##">
+		  
+			  <div class="input-file-box">
+			    	<input type="file" class="file-input"  id="file3" multiple="multiple" name="cookhouse" />
+			    上传图片
+			  </div>
+			  <ul id="imgList3">
+			    <li><img src="" alt=""/></li>
+			  </ul>
+		</form>
+        </div>
+
+        <div class="h_pic_list clearfix filesInputNew" id="group_others" type="others">
+            <span style="font-weight: bold">其他：</span>
+            <p  style="color: #757575;">建议上传。可以是其他室内空间、物件、小区周边环境等。更多的照片往往能吸引更多的房客。<span class="showDemo cursorPointer" data-value="others" data-src="images/pubsysV2/pubsys_v37others.jpg" data-desc="可以是其他室内空间、物件、小区周边环境等">范例></span></p>
+           <form name="form0" id="form4" method="post" enctype="multipart/form-data" action="##">
+			  <div class="input-file-box">
+			    	<input type="file" class="file-input"  id="file4" multiple="multiple" name="rests" />
+			    上传图片
+			  </div>
+			  <ul id="imgList4">
+			    <li><img src="" alt=""/></li>
+			  </ul>
+		</form>
+        </div>
+        </div>
+
+        <div class="h_wrap" id="pictureSortModules"  style="display: none;">
+            <div class="pictureSortTitleDesc">房客浏览房源照片时的展示顺序。按住并拖动照片即可调整</div>
+            <div class="h_pic_order_list clearfix" style="padding-top: 20px;">
+                <ul class='dp_con ' id="pictureSortAll">
+                                                        </ul>
+            </div>
+        </div>
+   </div>
+
+    <div class="w_960 pb20 clearfix">
+        <a class="keep_btn" id='picSave' href="javascript:savephoto()">保存并继续</a>
+    </div>
+
+<ul id="imgBig" class="thumb-photo-nav" style="display:none;">
+    </ul>
+<ul id="imgBigError" class="" style="display:none;"></ul>
+             
+<div class="foot_v2">
+        <ul class="foot_ul">
+        <li><a class="guide" href="http://www.xiaozhu.com/xzweb.php?op=Help_UserGuide&type=tenant" target="_blank">房客指南</a></li>
+        <li><a class="guide icon_fk" href="http://www.xiaozhu.com/xzweb.php?op=Help_UserGuide&type=landlord" target="_blank">房东指南</a></li>
+        <li>
+            <span class="guide_T">关于我们</span>
+            <a href="http://www.xiaozhu.com/aboutus" target="_blank">关于小猪</a>
+            <a href="http://app.mokahr.com/apply/xiaozhu/4514" target="_blank">加入我们</a>
+            <a href="http://www.xiaozhu.com/contactus" target="_blank">联系我们</a>
+        </li>
+        <li>
+            <span class="guide_T">网站帮助</span>
+            <a href="http://www.xiaozhu.com/help/index" target="_blank" >帮助中心</a>
+            <a href="http://www.xiaozhu.com/sitemap.html" target="_blank">网站地图</a> 
+        </li>
+        <li class="width_280">
+            <span class="guide_T">网站协议</span><br/>
+            <a href="http://www.xiaozhu.com/help/service" target="_blank">服务协议</a> 
+            <a href="http://www.xiaozhu.com/help/landlordRule" target="_blank">房东规则</a>
+            <a href="http://www.xiaozhu.com/help/tenantRule" target="_blank">房客规则</a>
+            <a href="http://www.xiaozhu.com/help/auditRule" target="_blank">房源上线标准</a>
+            <a href="http://www.xiaozhu.com/help/privacy" target="_blank">隐私保护</a>
+            <a href="http://www.xiaozhu.com/help/copyright" target="_blank">版权声明</a>
+            <a href="http://www.xiaozhu.com/help/disclaimer" target="_blank">免责声明</a>
+            <a href="http://www.xiaozhu.com/help/intellectualProperty" target="_blank">知识产权声明</a>
+            <a href="http://www.xiaozhu.com/help/commentRule" target="_blank">点评发布规则</a>
+            <a href="http://www.xiaozhu.com/help/japanReservationRule" target="_blank">日本标准住宅宿泊仲介业约款</a>
+        </li>
+        <li class="bigFont online_kf">
+            <span class=""   onclick='window.open("https://yiconnect.wezhuiyi.com/chat?t=Cks3pxv2eMBfA3BZvdOhS6Pa1am5fygsIHyQRXc0D7U&uid=106084124101&customer=%7B%22cID%22%3A%22106084124101%22%7D","_blank");' ><i></i>在线客服</span>
+            <p>客服电话  400 - 010 - 7890</p>
+            <p>客服邮箱  service@xiaozhu.com</p>
+        </li>
+            </ul>
+        <dl class="link_dl">
+        <dt>城市导航</dt>
+        <dd>
+            <a target="_blank" href="//bj.xiaozhu.com/">北京短租房</a>
+            <a target="_blank" href="//sh.xiaozhu.com/">上海短租房</a>
+            <a target="_blank" href="//nj.xiaozhu.com/">南京短租房</a>
+            <a target="_blank" href="//cd.xiaozhu.com/">成都短租房</a>
+            <a target="_blank" href="//gz.xiaozhu.com/">广州短租房</a>
+            <a target="_blank" href="//cq.xiaozhu.com/">重庆短租房</a>
+            <a target="_blank" href="//wh.xiaozhu.com/">武汉短租房</a>
+            <a target="_blank" href="//dl.xiaozhu.com/">大连短租房</a>
+            <a target="_blank" href="//sanya.xiaozhu.com/">三亚短租房</a>
+            <a target="_blank" href="//lijiang.xiaozhu.com/">丽江短租房</a>
+            <a target="_blank" href="//tj.xiaozhu.com/">天津短租房</a>
+            <a target="_blank" href="//xianggang.xiaozhu.com/">香港短租房</a>
+            <a target="_blank" href="//cs.xiaozhu.com/">长沙短租房</a>
+            <a target="_blank" href="//wx.xiaozhu.com/">无锡短租房</a>
+            <a target="_blank" href="//km.xiaozhu.com/">昆明短租房</a>
+            <a target="_blank" href="//jn.xiaozhu.com/">济南短租房</a>
+            <a target="_blank" href="//xm.xiaozhu.com/">厦门短租房</a>
+            <a target="_blank" href="//qd.xiaozhu.com/">青岛短租房</a>
+            <a target="_blank" href="//zz.xiaozhu.com/">郑州短租房</a>
+            <a target="_blank" href="//xa.xiaozhu.com/">西安短租房</a>
+            <a target="_blank" href="//hz.xiaozhu.com/">杭州短租房</a>
+            <a target="_blank" href="//sz.xiaozhu.com/">深圳短租房</a>
+            <a target="_blank" href="//sy.xiaozhu.com/">沈阳短租房</a> 
+            <a target="_blank" href="//su.xiaozhu.com/">苏州短租房</a>
+        </dd>
+    </dl>
+    <dl class="link_dl">
+</div>
+
+<input type="hidden" name="actionName" id="actionName" value="Pub_IndexV2Step4"/>
+<input type="hidden" name="xz_srf_token" id="xz_srf_token" value="96328ee4f81f2f0208d5ef62f7d530fe"/>
+
+<script type="text/javascript" src="//jci.xiaozhustatic3.com/e19061701/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="//jci.xiaozhustatic1.com/e19061701/xzjs?k=Footer&httphost=www.xiaozhu.com"></script>
+<link rel="stylesheet" type="text/css" href="//jci.xiaozhustatic1.com/e19061701/xzcss?css=jquery.mCustomScrollbar,nyroModal,uploadify,shadepage" />
+<script type="text/javascript" src="//jci.xiaozhustatic1.com/e19061701/js/jquery/lazyload.js"></script>
+<script type="text/javascript" src="http://www.xiaozhu.com/e19061701/js/webimv4/application/xzim4.js?source=xiaozhu&dm=xiaozhu.com" id="webimSource"></script>
+
+        </div>
+        <script type="text/javascript" src="//jci.xiaozhustatic1.com/e19061701/xzjs?k=Pub_IndexV2Step4&httphost=www.xiaozhu.com"></script>
+<script src="http://www.codefans.net/ajaxjs/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+<style>
+  #imgList{
+    list-style:none;
+    clear:both;
+  }
+  #imgList li{
+    float:left;
+    width:200px;
+    height:200px;margin:10px 10px 0 0;
+    border-radius:4px;
+    background-color:pink;
+    display:inline-block;
+  }
+  #imgList li img{
+    width:100%;
+    height:200px;
+  }
+    #imgList1{
+    list-style:none;
+    clear:both;
+  }
+  #imgList1 li{
+    float:left;
+    width:200px;
+    height:200px;
+    margin:10px 10px 0 0;
+    border-radius:4px;
+    background-color:pink;
+    display:inline-block;
+  }
+  #imgList1 li img{
+    width:100%;
+    height:200px;
+  }
+  #imgList2{
+    list-style:none;
+    clear:both;
+  }
+  #imgList2 li{
+    float:left;
+    width:200px;
+    height:200px;margin:10px 10px 0 0;
+    border-radius:4px;
+    background-color:pink;
+    display:inline-block;
+  }
+  #imgList2 li img{
+    width:100%;
+    height:200px;
+  }
+    #imgList3{
+    list-style:none;
+    clear:both;
+  }
+  #imgList3 li{
+    float:left;
+    width:200px;
+    height:200px;margin:10px 10px 0 0;
+    border-radius:4px;
+    background-color:pink;
+    display:inline-block;
+  }
+  #imgList3 li img{
+    width:100%;
+    height:200px;
+  }
+    #imgList4{
+    list-style:none;
+    clear:both;
+  }
+  #imgList4 li{
+    float:left;
+    width:200px;
+    height:200px;margin:10px 10px 0 0;
+    border-radius:4px;
+    background-color:pink;
+    display:inline-block;
+  }
+  #imgList4 li img{
+    width:100%;
+    height:200px;
+  }
+  .input-file-box{
+    display: inline-block;
+    position: relative;
+    padding: 3px 5px;
+    overflow: hidden;
+    color:#fff;
+    background-color: #ccc;
+  }
+  .file-input{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+      left: 0;
+      outline: none;
+      background-color: transparent;
+      filter:alpha(opacity=0);
+    -moz-opacity:0;
+    -khtml-opacity: 0;
+    opacity: 0;
+  }
+</style>
+<script>  
+$("#file0").change(function(){
+  console.log(this.files)
+  var arr = [];
+  for(var val of this.files){
+    var imgUrl = getObjectURL(val) ;
+    if (imgUrl) {
+      // 在这里修改图片的地址属性
+      arr.push('<li><img src="'+imgUrl+'"/></li>')
+    }
+    $('#imgList').html(arr.join(''))
+  }
+}) ;
+$("#file1").change(function(){
+	  console.log(this.files)
+	  var arr = [];
+	  for(var val of this.files){
+	    var imgUrl = getObjectURL(val) ;
+	    if (imgUrl) {
+	      // 在这里修改图片的地址属性
+	      arr.push('<li><img src="'+imgUrl+'"/></li>')
+	    }
+	    $('#imgList1').html(arr.join(''))
+	  }
+	}) ;
+$("#file2").change(function(){
+	  console.log(this.files)
+	  var arr = [];
+	  for(var val of this.files){
+	    var imgUrl = getObjectURL(val) ;
+	    if (imgUrl) {
+	      // 在这里修改图片的地址属性
+	      arr.push('<li><img src="'+imgUrl+'"/></li>')
+	    }
+	    $('#imgList2').html(arr.join(''))
+	  }
+	}) ;
+$("#file3").change(function(){
+	  console.log(this.files)
+	  var arr = [];
+	  for(var val of this.files){
+	    var imgUrl = getObjectURL(val) ;
+	    if (imgUrl) {
+	      // 在这里修改图片的地址属性
+	      arr.push('<li><img src="'+imgUrl+'"/></li>')
+	    }
+	    $('#imgList3').html(arr.join(''))
+	  }
+	}) ;
+$("#file4").change(function(){
+	  console.log(this.files)
+	  var arr = [];
+	  for(var val of this.files){
+	    var imgUrl = getObjectURL(val) ;
+	    if (imgUrl) {
+	      // 在这里修改图片的地址属性
+	      arr.push('<li><img src="'+imgUrl+'"/></li>')
+	    }
+	    $('#imgList4').html(arr.join(''))
+	  }
+	}) ;
+//建立一個可存取到該file的url
+function getObjectURL(file) {
+  var url = null ; 
+  // 下面函数执行的效果是一样的，只是需要针对不同的浏览器执行不同的 js 函数而已
+  if (window.createObjectURL!=undefined) { // basic
+    url = window.createObjectURL(file) ;
+  } else if (window.URL!=undefined) { // mozilla(firefox)
+    url = window.URL.createObjectURL(file) ;
+  } else if (window.webkitURL!=undefined) { // webkit or chrome
+    url = window.webkitURL.createObjectURL(file) ;
+  }
+  return url ;
+}
+function savephoto(){
+	 var form0 = new FormData(document.getElementById("form0"));
+	 var form1 = new FormData(document.getElementById("form1"));
+	 var form2 = new FormData(document.getElementById("form2"));
+	 var form3 = new FormData(document.getElementById("form3"));
+	 var form4 = new FormData(document.getElementById("form4"));
+	$.ajax({
+        	type: "POST",
+            url: "../homephoto/homePhotoadd" ,
+            async: false,//url
+            cache: false,
+            data: form0,
+            processData:false,
+            contentType:false,
+            success:function(data) {
+            	$.ajax({
+                    type: "POST",//方法类型
+                    url: "../homephoto/updateParlor" ,
+                    data: form1,
+                    processData:false,
+                    contentType:false,
+                    success: function (data) {
+                    	$.ajax({
+                            type: "POST",//方法类型
+                            url: "../homephoto/updateToilt" ,//url
+                            async: false,
+                            cache: false,
+                            data: form2,
+                            processData:false,
+                            contentType:false,
+                            success: function (data) {
+                            	$.ajax({
+                                    type: "POST",//方法类型
+                                    url: "../homephoto/updateCookhouse" ,//url
+                                    async: false,
+                                    cache: false,
+                                    data: form3,
+                                    processData:false,
+                                    contentType:false,
+                                    success: function (data) {
+                                    	$.ajax({
+                                            type: "POST",//方法类型
+                                            url: "../fabufangyuan/showPlue" ,
+                                            async: false,
+                                            cache: false,//url
+                                            data: form4,
+                                            processData:false,
+                                            contentType:false,
+                                            success: function (data) {
+                                            	window.location.href="http://localhost:8081/fabufangyuan/showPlue";
+                                         }
+                                    	});
+                                 }
+                            	});
+                         }
+                    	});
+                 }
+            	});
+         }
+    });
+}
+</script>
+</body>
+<!-- Google Tag Manager -->
+<!-- End Google Tag Manager -->
+</html>

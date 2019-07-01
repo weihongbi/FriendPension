@@ -1,0 +1,498 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta name="renderer" content="webkit">
+	<meta name="keywords" content=""/>
+	<meta name="description" content="" />
+	<link rel="shortcut icon" href="https://www.xiaozhu.com/favicon.ico" type="image/vnd.microsoft.icon">
+	<link rel="icon" href="https://www.xiaozhu.com/favicon.ico" type="image/vnd.microsoft.icon">
+	<title>发布您的房间</title>       
+	<link rel="stylesheet" type="text/css" href="//jci.xiaozhustatic1.com/e19061101/xzcss?css=base,header,footer,publishRoomV2,photoScroll,jquery-ui,nyroModal,mysite" />
+</head>
+<body>
+            <div class="header height56">
+                <div class="top"></div>
+                </div>
+<div class="detail_wrapper">
+    <div class="detail_head clearfix">
+        <a href="http://www.xiaozhu.com" class="xz_logo_detail">小猪</a><span class="slogan_v2 slogan_black"></span>
+        <ul class="nav_R nav_commen">
+            <input type="hidden" value="landlord" id="userCurrentRole" />
+            <input type="hidden" value="106084124101" id="loginUserId" />
+                        <li class="current">
+                <a href="#ongo" class="openTri_R" rel="nofollow"></a>
+                <div class="head_pop top40">
+                    <div class="pop_column">
+                        <a class="pop_T" href="http://www.xiaozhu.com/xzweb.php?op=FangDong_Index">房东中心</a>
+                        <span>
+                            <a class="fl" href="http://www.xiaozhu.com/xz_web2/order/pages/landlord/orderList.html">订单管理</a>
+                            <a class="fr" href="http://www.xiaozhu.com/xzweb.php?op=FangDong_SettlementInfo">结算统计</a>
+                        </span>
+                        <span>
+                            <a class="fl" href="http://www.xiaozhu.com/xzweb.php?op=FangDong_ShowLetter">聊天记录</a>
+                            <a class="fr" href="http://www.xiaozhu.com/xzweb.php?op=FangDong_Comment&filterType=waitComment&fkCmtFilter=all">我的点评</a>
+                        </span>
+                        <span>
+                            <a class="fl" href="http://www.xiaozhu.com/xzweb.php?op=FangDong_MyRooms">房源信息</a>
+                            <a class="fr" href="http://www.xiaozhu.com/xzweb.php?op=FangDong_MyRentCalendarList">价格房态</a>
+                        </span>
+                        <span>
+                            <a class="fl" href="http://www.xiaozhu.com/xzweb.php?op=FD_DiaryList">短租日记</a>
+                            <a class="fr" href="http://www.xiaozhu.com/xzweb.php?op=FangDong_UserInfo">个人资料</a>
+                        </span>
+                    </div>
+                    <div class="pop_column">
+                        <a class="pop_T pop_bor" href="http://www.xiaozhu.com/xzweb.php?op=FangKe_Index">房客中心</a>
+                        <span>
+                            <a class="fl" href="http://www.xiaozhu.com/xz_web2/order/pages/lodger/list.html">我的订单</a>
+                            <a class="fr" href="http://www.xiaozhu.com/xzweb.php?op=FangKe_ShowLetter">聊天记录</a>
+                        </span>
+                        <span>
+                            <a class="fl" href="http://www.xiaozhu.com/xzweb.php?op=FangKe_Comment">我的点评</a>
+                            <a class="fr" href="http://www.xiaozhu.com/xzweb.php?op=FangKe_UserInfo">个人资料</a>
+                        </span>
+                        <span class="textCt"><a href="http://www.xiaozhu.com/logout" id="IM-Logout">退出</a></span>
+                    </div>
+                </div>
+            </li>
+                                    <li class="current">
+                <a href="#ongo" class="openTri_R">短租指南</a>
+                <div class="head_pop width_58 top40">
+                    <div class="pop_column">
+                        <span><a class="fl" href="http://www.xiaozhu.com/xzweb.php?op=Help_UserGuide&type=tenant">房客指南</a><a class="fr" href="http://www.xiaozhu.com/xzweb.php?op=Help_UserGuide&type=landlord">房东指南</a></span>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a href="#ongo" class="icon_iphone">手机小猪</a>
+                  <div class="head_pop w_120 top40">
+                   <a href="http://www.xiaozhu.com/appdownload/fk"  target="_blank">了解更多</a>
+              </div>
+            </li>
+                        <li><a rel="nofollow" data-href="http://localhost:8081/fabufangyuan/findAll" class="btn_free" id = "Pub_Btn">免费发布房源</a></li>
+                    </ul>
+    </div>
+            <div class='h_top_box'>
+                <div class="h_step_box">
+                                        <ul class="clearfix">
+                                                                                                                    </ul>
+                                        <div class="h_step_cur h_pos1">
+                                                <span class="h_step1_cur"></span>
+                                                <p>房源信息</p>
+                    </div>
+                    <div class="h_step h_pos2">
+                                                <span class="h_step2"></span>
+                                                <p>房源描述</p>
+                    </div>
+                    <div class="h_step h_pos3">
+                                                <span class="h_step3"></span>
+                                                <p>配套设施</p>
+                    </div>
+                    <div class="h_step h_pos4">
+                                                <span class="h_step4"></span>
+                                                <p>真实照片</p>
+                    </div>
+                    <div class="h_step h_pos5">
+                                                <span class="h_step5"></span>
+                                                <p>价格规则</p>
+                    </div>
+                </div>
+            </div>
+                        <div class="h_wrap mt20">
+                <h4 class="h_tit">房源地址</h4>
+                <div class="address_box" >
+            <div class="clearfix">
+                <div class="address_text">房源位于：</div>
+                
+                <div class="address_list">
+                    <select id="province" name="province"  xm-select="select1" style="height:50px;width:120px;">
+						<option 
+						    th:each="province: ${province}"
+						    th:value="${province.provinceid}"
+						    th:text="${province.province}"
+						    >
+						</option>
+					</select>
+					<select id="city" name="city"  xm-select="select1" style="height:50px;width:120px;">
+						<option 
+						    th:each="city : ${city}"
+						    th:value="${city.cityid}"
+						    th:text="${city.city}"
+						    >
+						</option>
+					</select>
+					<select id="area" name="area"  xm-select="select1" style="height:50px;width:120px;">
+						<option 
+						    th:each="area : ${area}"
+						    th:value="${area.areaid}"
+						    th:text="${area.area}"
+						    >
+						</option>
+					</select>
+                </div>
+            </div>
+        </div>
+</div>
+<div class="h_wrap mt20">
+<h4 class="h_tit">房源基本情况</h4>
+        <div  class="h_house_info">
+            <ul>
+                 <li class="clearfix pb15" >
+                    <label class="type w_103" style="width: 100px;color:#000;">房屋类型：</label>
+                    <select id="roleId" name="roleId"  xm-select="select1" style="height:50px;width:120px;">
+						<option 
+						    th:each="role : ${houseType}"
+						    th:value="${role.houseTypeId}"
+						    th:text="${role.houseTypeName}"
+						    >
+						</option>
+					</select>
+                </li>
+                <label class="type w_103" style="width: 100px;color:#000;">出租类型：</label>
+                 <li class="clearfix pb15" > 
+                    <div style="margin-left:100px;" class="h_house_r pr" th:each="r:${rent}">
+                        <ul class="h_house_type">
+                           <li style="margin: 10px 0;" class="leasetype_red_err " id="whole_red_err" key="whole" >
+                                	<input style="margin-left:20px;" type="radio" name="#var.check" id="rentid" value="1"/>
+                                	<span style="margin-left:20px;font-size: 14px;font-weight: bold;color: #212121;" th:text="${r.rentName}"></span>
+                            </li>
+                         </ul>
+                    </div>
+                </li>
+                <li class="clearfix pb15">
+                    <label class="type1 w_103" style="color:#000;">房屋户型：</label>
+                    
+                    <span id="roomTypeDesc" style="line-height: 40px;font-size:12px;color:#757575">
+                                       请填写整套房屋户型 </span>
+                    <div class="h_house_r clearfix" style="margin-left: 103px;">
+                        <div>
+                         	<select class="h_input_box "style="width: 120px;" id="shi">
+                         		<option value="">请选择</option>
+                         		<option value="1">1</option>
+                         		<option value="2">2</option>
+                         		<option value="3">3</option>
+                         		<option value="4">4</option>
+                         		<option value="5">5</option>
+                         		<option value="6">6</option>
+                         		<option value="7">7</option>
+                         	</select>
+                        </div>
+                        <span class="" style="position: relative;float: left;display: block;height: 38px;line-height: 38px;margin-right: 5px;">室</span>
+                        <div>
+	                        <select class="h_input_box "style="width: 120px;" id="ting">
+	                         		<option value="">请选择</option>
+	                         		<option value="1">1</option>
+	                         		<option value="2">2</option>
+	                         		<option value="3">3</option>
+	                         		<option value="4">4</option>
+	                         		<option value="5">5</option>
+	                         		<option value="6">6</option>
+	                         		<option value="7">7</option>
+	                         	</select>
+                        </div>
+                        <span class="" style="position: relative;float: left;display: block;height: 38px;line-height: 38px;margin-right: 5px;">厅</span>
+                        <div>
+	                        <select class="h_input_box "style="width: 120px;" id="wei">
+	                         		<option value="">请选择</option>
+	                         		<option value="1">1</option>
+	                         		<option value="2">2</option>
+	                         		<option value="3">3</option>
+	                         		<option value="4">4</option>
+	                         		<option value="5">5</option>
+	                         		<option value="6">6</option>
+	                         		<option value="7">7</option>
+	                         	</select>
+                        </div>
+                        <span class="" style="position: relative;float: left;display: block;height: 38px;line-height: 38px;margin-right: 5px;">卫</span>
+                        <div>
+	                        <select class="h_input_box "style="width: 120px;" id="chu">
+	                         		<option value="">请选择</option>
+	                         		<option value="1">1</option>
+	                         		<option value="2">2</option>
+	                         		<option value="3">3</option>
+	                         		<option value="4">4</option>
+	                         		<option value="5">5</option>
+	                         		<option value="6">6</option>
+	                         		<option value="7">7</option>
+	                         	</select>
+                        </div>
+                        <span class="" style="position: relative;float: left;display: block;height: 38px;line-height: 38px;margin-right: 5px;">厨</span>
+                        <div>
+	                        <select class="h_input_box "style="width: 120px;" id="yangtai">
+	                         		<option value="">请选择</option>
+	                         		<option value="1">1</option>
+	                         		<option value="2">2</option>
+	                         		<option value="3">3</option>
+	                         		<option value="4">4</option>
+	                         		<option value="5">5</option>
+	                         		<option value="6">6</option>
+	                         		<option value="7">7</option>
+	                         	</select>
+                        </div>
+                        <span class="" style="position: relative;float: left;display: block;height: 38px;line-height: 38px;margin-right: 5px;">阳台</span>
+                        <p class="h_check_tip ml10 simsun" id="tip_roomtype" style="display:none">请完善房屋户型</p>
+                        <p class="h_check_tip ml10 simsun" id="tip_roomtype_zero" style="display:none"></p>
+                    </div>
+                </li>
+                <!--
+                <li class="pb15" style="display:none" id="pleaseNum">
+                    <p class="h_num_tip">请填写整套房屋的户型（如果没有请填写0）</p>
+                </li>
+                -->
+                <li class="clearfix pb15">
+                    <label class="type1 w_103" id="room_area_title" style="color:#000;">出租面积：</label>
+                    <span id="room_area_titleDesc" style="line-height: 40px;font-size:12px;color:#757575">
+                        请填写出租面积                </span>
+                    <div class="h_house_r clearfix" style="margin-left: 103px;">
+                        <div class="h_input_box " id="area_red_err" style="width: 120px;">
+                            <input type="text" name="area" class="area" id="mianji" value="" placeholder="请填写" onkeyup="this.value=this.value.replace(/[^\d]/g,'')" onafterpaste="this.value=this.value.replace(/[^\d]/g,'') " maxlength="4"/>
+                        </div>
+                        <span class="" style="position: relative;float: left;display: block;height: 38px;line-height: 38px;margin-right: 5px;"> m&sup2</span>
+                        <p class="h_check_tip ml10 simsun" id="tip_area"  style="display:none">请填写出租面积</p>
+                    </div>
+
+                </li>
+                <label class="type1 w_103" style="color:#000;">卫生间类型：</label>
+                <li class="clearfix pb15" id="luToilet" >
+                    <div class="h_house_r clearfix " id="toilet" style="margin-left:100px;">
+                        <ul class="h_toliet_type">
+                            <li style="margin: 10px 0;" class="leasetype_red_err  " value="2">
+                                	<input style="margin-left:20px;" type="radio" value='2' checked="checked" id="solo"/>
+                                	<span style="margin-left:20px;font-size: 14px;font-weight: bold;color: #212121;">独立卫生间</span>
+                            </li>
+                            <li style="margin: 10px 0;" class="leasetype_red_err  " value="2">
+                                	<input style="margin-left:20px;" type="radio" value='1' id="gonggong"/>
+                                	<span style="margin-left:20px;font-size: 14px;font-weight: bold;color: #212121;">公共卫生间</span>
+                                	
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="clearfix pb15">
+                    <label class="type1 w_103" style="color:#000;">床铺信息：</label>
+                    <span style="line-height: 40px;font-size:12px;color:#757575">为保证房客体验，小猪要求床品至少<span style="color:#ff4081;">每客一换</span></span>
+                    <div class="h_house_r" id="room_bed" style="margin-left: 103px;">
+                                                <div class="pb20 clearfix room_bed_c room_bed_box" id="bed1" key="">
+                            <div id="bed1_type_div">
+                           		<select name="roleId" id="bed" xm-select="select1" class="select_box fl mr10 room_bed_box " >
+										<option 
+										    th:each="b : ${bed}"
+										    th:value="${b.bedTypeId}"
+										    th:text="${b.bedTypeName}"
+										    >
+										</option>
+								</select>	
+                            </div>
+                            <div class="h_input_box" id="bed1_length_div" style="width: 120px;">
+                                <input type="text" id="longs" name="bed1_length" class="bed_list_f" placeholder="请填写"/>
+                            </div>
+                            <span class="bedDetailInfo">m长</span>
+                            <div class="h_input_box" id="bed1_weight_div" style="width: 120px;">
+                                <input type="text" id="width" name="bed1_weight" class="bed_list_f" placeholder="请填写"/>
+                            </div>
+                            <span class="bedDetailInfo">m宽</span>
+                            <div class="h_input_box" id="bed1_num_div" style="width: 120px;">
+                                <input type="text" id="alike" name="bed1_num" class="bed_list_n" maxlength="2" placeholder="请填写"/>
+                            </div>
+                            <span class="bedDetailInfo">张同规格床铺</span>
+                            <p class="h_check_tip simsun" id="tip_bed1" style="display:none">请完善床铺信息</p>
+                        </div>
+                        
+                    </div>
+                </li>
+                <li class="clearfix pb15">
+                    <label class="type1 w_103" style="color:#000;">宜居人数：</label>
+                    <span style="line-height: 40px;font-size:12px;color:#757575">请填写<span style="color:#ff4081;">最适宜居住的人数</span>，而不是最多入住人数。（如有需要，请在“加客设置”中填写）
+                    <p id="tantnumDesc" style="margin-left: 103px;font-size:12px;color:#757575"></p>
+                    </span>
+                    <div class="h_house_r" style="margin-left: 103px;margin-top: 10px;">
+                        <div>
+	                        <select class=" select_box fl mr10 tantnum_box" style="width: 120px;" id="livablePeople">
+	                         		<option value="">请选择</option>
+	                         		<option value="1">1</option>
+	                         		<option value="2">2</option>
+	                         		<option value="3">3</option>
+	                         		<option value="4">4</option>
+	                         		<option value="5">5</option>
+	                         		<option value="6">6</option>
+	                         		<option value="7">7</option>
+	                         	</select>
+                        </div>
+                        <span class="bedDetailInfo">人</span>
+                        <p class="h_check_tip ml10 simsun" id="tip_tantnum" value="" style="display:none">请选择宜居人数</p>
+                    </div>
+                </li>
+                <li class="clearfix pb15" id="luLivewith" >
+                    	<span class="type1 w_234" style="color:#000;">与房东共居在一套房屋内：</span>
+                        <input style="margin-left:20px;" id="yes" type="radio" value='1'/>是
+                        <input style="margin-left:20px;" id="no" type="radio" value='0' checked="checked"/>否
+                </li>
+                <!--<li class="clearfix pb15" id="luRoomNum" >-->
+
+                <li class="clearfix pb15" id="luRoomNum" style="display:block">
+                    <!--<label class="type1 w_103" id="sameRoomTitle">同类房源：</label>-->
+                    <label class="type1 w_103" id="sameRoomTitle" style="color:#000;">同类房源数：</label>
+                    <div class="h_house_r  clearfix">
+                                                <p class="h_tip_text" id="roomDesc"></p>
+                                                <div class="h_input_box" style="width: 120px;">
+                           <div>
+	                        <select class=" select_box fl mr10 tantnum_box" style="width: 120px;" id="identicalHouse">
+	                         		<option value="">请选择</option>
+	                         		<option value="1">1</option>
+	                         		<option value="2">2</option>
+	                         		<option value="3">3</option>
+	                         		<option value="4">4</option>
+	                         		<option value="5">5</option>
+	                         		<option value="6">6</option>
+	                         		<option value="7">7</option>
+	                         	</select>
+                        </div>
+                        </div>
+                        <span style="position: relative;float: left;display: block;height: 38px;line-height: 38px;margin-right: 5px;" id='leaseNameType'>套</span>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="w_960 pb15 clearfix">
+        <a class="keep_btn" href="javascript:save()" id="saveSub">保存并继续</a>
+            </div>      
+<div class="foot_v2">
+        <ul class="foot_ul">
+        <li><a class="guide" href="http://www.xiaozhu.com/xzweb.php?op=Help_UserGuide&type=tenant" target="_blank">房客指南</a></li>
+        <li><a class="guide icon_fk" href="http://www.xiaozhu.com/xzweb.php?op=Help_UserGuide&type=landlord" target="_blank">房东指南</a></li>
+        <li>
+            <span class="guide_T">关于我们</span>
+            <a href="http://www.xiaozhu.com/aboutus" target="_blank">关于小猪</a>
+            <a href="http://app.mokahr.com/apply/xiaozhu/4514" target="_blank">加入我们</a>
+            <a href="http://www.xiaozhu.com/contactus" target="_blank">联系我们</a>
+        </li>
+        <li>
+            <span class="guide_T">网站帮助</span>
+            <a href="http://www.xiaozhu.com/help/index" target="_blank" >帮助中心</a>
+            <a href="http://www.xiaozhu.com/sitemap.html" target="_blank">网站地图</a> 
+        </li>
+        <li class="width_280">
+            <span class="guide_T">网站协议</span><br/>
+            <a href="http://www.xiaozhu.com/help/service" target="_blank">服务协议</a> 
+            <a href="http://www.xiaozhu.com/help/landlordRule" target="_blank">房东规则</a>
+            <a href="http://www.xiaozhu.com/help/tenantRule" target="_blank">房客规则</a>
+            <a href="http://www.xiaozhu.com/help/auditRule" target="_blank">房源上线标准</a>
+            <a href="http://www.xiaozhu.com/help/privacy" target="_blank">隐私保护</a>
+            <a href="http://www.xiaozhu.com/help/copyright" target="_blank">版权声明</a>
+            <a href="http://www.xiaozhu.com/help/disclaimer" target="_blank">免责声明</a>
+            <a href="http://www.xiaozhu.com/help/intellectualProperty" target="_blank">知识产权声明</a>
+            <a href="http://www.xiaozhu.com/help/commentRule" target="_blank">点评发布规则</a>
+            <a href="http://www.xiaozhu.com/help/japanReservationRule" target="_blank">日本标准住宅宿泊仲介业约款</a>
+        </li>
+        <li class="bigFont online_kf">
+            <span class=""   onclick='window.open("https://yiconnect.wezhuiyi.com/chat?t=Cks3pxv2eMBfA3BZvdOhS6Pa1am5fygsIHyQRXc0D7U&uid=106084124101&customer=%7B%22cID%22%3A%22106084124101%22%7D","_blank");' ><i></i>在线客服</span>
+            <p>客服电话  400 - 010 - 7890</p>
+            <p>客服邮箱  service@xiaozhu.com</p>
+        </li>
+            </ul>
+        <dl class="link_dl">
+        <dt>城市导航</dt>
+        <dd>
+            <a target="_blank" href="//bj.xiaozhu.com/">北京短租房</a>
+            <a target="_blank" href="//sh.xiaozhu.com/">上海短租房</a>
+            <a target="_blank" href="//nj.xiaozhu.com/">南京短租房</a>
+            <a target="_blank" href="//cd.xiaozhu.com/">成都短租房</a>
+            <a target="_blank" href="//gz.xiaozhu.com/">广州短租房</a>
+            <a target="_blank" href="//cq.xiaozhu.com/">重庆短租房</a>
+            <a target="_blank" href="//wh.xiaozhu.com/">武汉短租房</a>
+            <a target="_blank" href="//dl.xiaozhu.com/">大连短租房</a>
+            <a target="_blank" href="//sanya.xiaozhu.com/">三亚短租房</a>
+            <a target="_blank" href="//lijiang.xiaozhu.com/">丽江短租房</a>
+            <a target="_blank" href="//tj.xiaozhu.com/">天津短租房</a>
+            <a target="_blank" href="//xianggang.xiaozhu.com/">香港短租房</a>
+            <a target="_blank" href="//cs.xiaozhu.com/">长沙短租房</a>
+            <a target="_blank" href="//wx.xiaozhu.com/">无锡短租房</a>
+            <a target="_blank" href="//km.xiaozhu.com/">昆明短租房</a>
+            <a target="_blank" href="//jn.xiaozhu.com/">济南短租房</a>
+            <a target="_blank" href="//xm.xiaozhu.com/">厦门短租房</a>
+            <a target="_blank" href="//qd.xiaozhu.com/">青岛短租房</a>
+            <a target="_blank" href="//zz.xiaozhu.com/">郑州短租房</a>
+            <a target="_blank" href="//xa.xiaozhu.com/">西安短租房</a>
+            <a target="_blank" href="//hz.xiaozhu.com/">杭州短租房</a>
+            <a target="_blank" href="//sz.xiaozhu.com/">深圳短租房</a>
+            <a target="_blank" href="//sy.xiaozhu.com/">沈阳短租房</a> 
+            <a target="_blank" href="//su.xiaozhu.com/">苏州短租房</a>
+        </dd>
+    </dl>
+    <dl class="link_dl">
+         
+    </dl>
+                <div class="foot_btm">许可证号：京ICP证140510号 &nbsp;&nbsp; <a href="//www.anquan.org/s/www.xiaozhu.com" |="" name="mt8SMvYyRDI92b06nuDs8dPFapllCJYidqhM1WlOoGRZ9DWpbo" rel="nofollow" target="_blank">安全联盟</a> &nbsp;&nbsp; 北京快跑信息科技有限公司 &nbsp;&nbsp; <a href="http://www.xiaozhu.com/images/yingye.jpg" |="" name="yingyezhizhao" rel="nofollow" target="_blank">营业执照号 103613118</a> <span style="display:none">  &nbsp;&nbsp; 地址：北京市海淀区知春路56号   &nbsp;&nbsp;电话：010-62961978</span>
+    </div>
+</div>
+
+<input type="hidden" name="actionName" id="actionName" value="Pub_Index"/>
+<input type="hidden" name="xz_srf_token" id="xz_srf_token" value="3f10d77d2f5133b424e36414e0db323e"/>
+
+<script type="text/javascript" src="//jci.xiaozhustatic3.com/e19061101/js/jquery/jquery.js"></script>
+<script type="text/javascript" src="//jci.xiaozhustatic1.com/e19061101/xzjs?k=Footer&httphost=www.xiaozhu.com"></script>
+<link rel="stylesheet" type="text/css" href="//jci.xiaozhustatic1.com/e19061101/xzcss?css=jquery.mCustomScrollbar,nyroModal,uploadify,shadepage" />
+<script type="text/javascript" src="//jci.xiaozhustatic1.com/e19061101/js/jquery/lazyload.js"></script>
+<script type="text/javascript" src="http://www.xiaozhu.com/e19061101/js/webimv4/application/xzim4.js?source=xiaozhu&dm=xiaozhu.com" id="webimSource"></script>
+
+        </div>
+        <script type="text/javascript" src="//jci.xiaozhustatic1.com/e19061101/xzjs?k=Pub_Index&httphost=www.xiaozhu.com"></script>
+        <script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
+<script type="text/javascript">
+function save(){
+	var province=$("#province").val();
+	var city=$("#city").val();
+	var area=$("#area").val();
+	var houseType=$("#roleId").val();
+	var rentid=$("#rentid").val();
+	var shi=$("#shi").val();
+	var ting=$("#ting").val();
+	var wei=$("#wei").val();
+	var chu=$("#chu").val();
+	var yangtai=$("#yangtai").val();
+	var mianji=$("#mianji").val();
+	var no=$("#no").val();
+	var solo=$("#solo").val();
+	var bed=$("#bed").val();
+	var longs=$("#longs").val();
+	var width=$("#width").val();
+	var alike=$("#alike").val();
+	var livablePeople=$("#livablePeople").val();
+	var identicalHouse=$("#identicalHouse").val();
+	$.ajax({
+		url:"../apartment/add",
+		type:"post",
+		async: false,//url
+        cache: false,
+        data: {bedroom:shi,parlor:ting,toilet:wei,cookhouse:chu,balcony:yangtai},
+		success:function(){
+			$.ajax({
+				url:"../bed/add",
+				type:"post",
+				async: false,//url
+	            cache: false,
+	            data: {bedTypeId:bed,longs:longs,width:width,alike:alike},
+				success:function(){
+					$.ajax({
+						url:"../homeDetail/add",
+						type:"post",
+						async: false,
+			            cache: false,
+			            data: {provinceId:province,cityid:city,areaid:area,houseTypeId:houseType,rentid:rentid,rentarea:mianji,toiletTypeId:solo,livablePeople:livablePeople,together:no,identicalHouse:identicalHouse},
+						success:function(){
+							window.location.href="http://localhost:8081/fabufangyuan/houseDepict";
+							}
+			            });
+					}
+				});
+			}
+	});
+}
+</script>
+</body>
+
+</html>

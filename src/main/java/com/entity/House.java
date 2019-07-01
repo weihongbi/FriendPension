@@ -9,7 +9,7 @@ public class House {
 	private String interior;
 	private String traffic;
 	private String ambitus;
-	private int matingId;
+	private String matingId;
 	private int ruleid;
 	private int pruleId;
 	private String reserveWay;
@@ -23,8 +23,10 @@ public class House {
 		super();
 	}
 	
+	
+
 	public House(int hid, int homedid, String hname, int hpid, String selfdom, String interior, String traffic,
-			String ambitus, int matingId, int ruleid, int pruleId, String reserveWay, int rule, int state, int cid,
+			String ambitus, String matingId, int ruleid, int pruleId, String reserveWay, int rule, int state, int cid,
 			int fnum) {
 		super();
 		this.hid = hid;
@@ -44,6 +46,8 @@ public class House {
 		this.cid = cid;
 		this.fnum = fnum;
 	}
+
+
 
 	public int getHid() {
 		return hid;
@@ -108,15 +112,6 @@ public class House {
 	public void setAmbitus(String ambitus) {
 		this.ambitus = ambitus;
 	}
-
-	public int getMatingId() {
-		return matingId;
-	}
-
-	public void setMatingId(int matingId) {
-		this.matingId = matingId;
-	}
-
 	public int getRuleid() {
 		return ruleid;
 	}
@@ -172,6 +167,18 @@ public class House {
 	public void setFnum(int fnum) {
 		this.fnum = fnum;
 	}
+
+	public String getMatingId() {
+		return matingId;
+	}
+
+
+
+	public void setMatingId(String matingId) {
+		this.matingId = matingId;
+	}
+
+
 
 	@Override
 	public String toString() {

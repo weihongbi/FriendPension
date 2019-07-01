@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript" src="../easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../easyui/locale/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="../easyui/myvalidate.js"></script>
+	<link rel="stylesheet" type="text/css" href="../easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css">
+	<script type="text/javascript">
+	</script>
+</head>
+<body>
+	 <table class="easyui-datagrid" style="width:100%" id="tb"
+   		 	data-options="url:'../bed/queryAll',fitColumns:'true',toolbar:'#tools',singleSelect:true">
+   			<thead>
+   				<tr>
+   					<th data-options="field:'bedid',width:50">编号</th>
+   					<th data-options="field:'bedTypeName',width:100">类型</th>
+   					<th data-options="field:'longs',width:100">长度</th>
+   					<th data-options="field:'width',width:100">宽度</th>
+   					<th data-options="field:'alike',width:100">同规格数量</th>
+   				</tr>
+   			</thead>
+   	</table>
+</body>
+</html>
