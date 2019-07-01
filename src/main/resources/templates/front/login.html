@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -185,3 +186,367 @@
 </body>
 <!-- Google Tag Manager -->
 <!-- End Google Tag Manager --></html>
+=======
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>民宿登录</title>
+<link href="../img/login.css" rel="stylesheet" rev="stylesheet" type="text/css" media="all" />
+<script type="text/javascript" src=" ../img/jQuery1.7.js"></script>
+<script type="text/javascript" src=" ../img/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src=" ../img/jquery1.42.min.js"></script>
+<script type="text/javascript" src=" ../img/jquery.SuperSlide.js"></script>
+<script type="text/javascript" src="../img/Validform_v5.3.2_min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		var $tab_li = $('#tab ul li');
+		$tab_li.hover(function(){
+			$(this).addClass('selected').siblings().removeClass('selected');
+			var index = $tab_li.index(this);
+			$('div.tab_box > div').eq(index).show().siblings().hide();
+		});	
+	});
+</script>
+ 
+
+<script type="text/javascript">
+	$(function(){
+		/*登录信息验证*/
+		$("#stu_username_hide").focus(function(){
+		 var username = $(this).val();
+		 if(username=='输入用户名'){
+		 $(this).val('');
+		 }
+		});
+		$("#stu_username_hide").focusout(function(){
+		 var username = $(this).val();
+		 if(username==''){
+		 $(this).val('输入用户名');
+		 }
+		});
+		$("#stu_password_hide").focus(function(){
+		 var password2 = $(this).val();
+		 if(password2=='输入密码'){
+		 $(this).val('');
+		 }
+		});
+		$("#stu_password_hide").focusout(function(){
+		 var password2 = $(this).val();
+		 if(password2==''){
+		 $(this).val('输入密码');
+		 }
+		});
+		$("#stu_code_hide").focus(function(){
+		 var username = $(this).val();
+		 if(username=='输入验证码'){
+		 $(this).val('');
+		 }
+		});
+		$("#stu_code_hide").focusout(function(){
+		 var username = $(this).val();
+		 if(username==''){
+		 $(this).val('输入验证码');
+		 }
+		});
+		$(".stu_login_error").Validform({
+			tiptype:function(msg,o,cssctl){
+				var objtip=$(".stu_error_box");
+				cssctl(objtip,o.type);
+				objtip.text(msg);
+			},
+			ajaxPost:true
+		});
+		/*注册信息验证*/
+		$("#cname_hide").focus(function(){
+		 var cname = $(this).val();
+		 if(cname=='输入用户名'){
+		 $(this).val('');
+		 }
+		});
+		$("#cname_hide").focusout(function(){
+		 var cname = $(this).val();
+		 if(cname==''){
+		 $(this).val('输入用户名');
+		 }
+		});
+		$("#password_hide").focus(function(){
+		 var password = $(this).val();
+		 if(password=='输入密码'){
+		 $(this).val('');
+		 }
+		});
+		$("#password_hide").focusout(function(){
+		 var password = $(this).val();
+		 if(password==''){
+		 $(this).val('输入密码');
+		 }
+		});
+		$("#idcard_hide").focus(function(){
+		 var idcard = $(this).val();
+		 if(idcard=='输入身份证'){
+		 $(this).val('');
+		 }
+		});
+		$("#idcard_hide").focusout(function(){
+		 var idcard = $(this).val();
+		 if(idcard==''){
+		 $(this).val('输入身份证');
+		 }
+		});
+		$("#phone_hide").focus(function(){
+		 var phone = $(this).val();
+		 if(phone=='输入手机号'){
+		 $(this).val('');
+		 }
+		});
+		$("#phone_hide").focusout(function(){
+		 var phone = $(this).val();
+		 if(phone==''){
+		 $(this).val('输入手机号');
+		 }
+		});
+		$("#city_hide").focus(function(){
+		 var city = $(this).val();
+		 if(city=='输入地址'){
+		 $(this).val('');
+		 }
+		});
+		$("#city_hide").focusout(function(){
+		 var city = $(this).val();
+		 if(city==''){
+		 $(this).val('输入地址');
+		 }
+		});
+		
+		$("#email_hide").focus(function(){
+		 var email = $(this).val();
+		 if(email=='输入邮箱'){
+		 $(this).val('');
+		 }
+		});
+		$("#email_hide").focusout(function(){
+		 var email = $(this).val();
+		 if(email==''){
+		 $(this).val('输入邮箱');
+		 }
+		});
+		$(".regist_error").Validform({
+			tiptype:function(msg,o,cssctl){
+				var objtip=$(".tea_error_box");
+				cssctl(objtip,o.type);
+				objtip.text(msg);
+			},
+			ajaxPost:true
+		});
+		/*忘记密码*/
+		$("#sec_username_hide").focus(function(){
+		 var username = $(this).val();
+		 if(username=='输入手机号'){
+		 $(this).val('');
+		 }
+		});
+		$("#sec_username_hide").focusout(function(){
+		 var username = $(this).val();
+		 if(username==''){
+		 $(this).val('输入手机号');
+		 }
+		});
+		$("#sec_password_hide").focus(function(){
+		 var username = $(this).val();
+		 if(username=='输入验证码'){
+		 $(this).val('');
+		 }
+		});
+		$("#sec_password_hide").focusout(function(){
+		 var username = $(this).val();
+		 if(username==''){
+		 $(this).val('输入验证码');
+		 }
+		});
+		
+		$(".sec_login_error").Validform({
+			tiptype:function(msg,o,cssctl){
+				var objtip=$(".sec_error_box");
+				cssctl(objtip,o.type);
+				objtip.text(msg);
+			},
+			ajaxPost:true
+		});
+		});
+		</script>
+		<script type="text/javascript">
+		$(function(){
+			$(".screenbg ul li").each(function(){
+				$(this).css("opacity","0");
+			});
+			$(".screenbg ul li:first").css("opacity","1");
+			var index = 0;
+			var t;
+			var li = $(".screenbg ul li");	
+			var number = li.size();
+			function change(index){
+				li.css("visibility","visible");
+				li.eq(index).siblings().animate({opacity:0},3000);
+				li.eq(index).animate({opacity:1},3000);
+			}
+			function show(){
+				index = index + 1;
+				if(index<=number-1){
+					change(index);
+				}else{
+					index = 0;
+					change(index);
+				}
+			}
+			t = setInterval(show,8000);
+			//根据窗口宽度生成图片宽度
+			var width = $(window).width();
+			$(".screenbg ul img").css("width",width+"px");
+	});
+</script>
+</head>
+
+<body>
+<div id="tab">
+  <ul class="tab_menu">
+    <li class="selected">登录</li>
+    <li>注册</li>
+    <li>手机号登录</li>
+  </ul>
+  <div class="tab_box"> 
+    <!-- 登录开始 -->
+    <div>
+      <div class="stu_error_box"></div>
+      <form action="../cust/userlogin" method="post">
+        <div id="username">
+          <label>用户名：</label>
+          <input type="text" id="stu_username_hide" name="cname" value="输入用户名" nullmsg="用户名不能为空"  sucmsg="用户名号验证通过！"/>
+        
+        </div>
+        <div id="password2">
+          <label>密&nbsp;&nbsp;&nbsp;码：</label>
+          <input type="password" id="stu_password_hide" name="password" value="输入密码" nullmsg="密码不能为空！"  sucmsg="密码验证通过！"/>
+        </div>        
+        <!-- <div id="remember">
+          <input type="checkbox" name="remember">
+          <label>记住密码</label>
+        </div> -->
+        <div id="login">
+          <button type="submit">登录</button>
+        </div>
+      </form>
+    </div>
+   <!-- 登录结束-->
+   <!-- 注册开始-->
+    <div class="hide">
+     <div class="tea_error_box"></div>
+      <form action="../cust/custadd" method="post" enctype="multipart/form-data" >
+        <div id="cname">
+	          <label>用户名：</label>
+	          <input type="text" id="cname_hide" name="cname" value="输入用户名" nullmsg="用户名不能为空！"/>
+         
+        </div>
+        <div id="password">
+	          <label>密&nbsp;&nbsp;&nbsp;码：</label>
+	          <input type="password" id="password_hide" name="password" value="输入密码" nullmsg="密码不能为空！" />
+        </div>
+        <div id="idcard">
+	          <label>身份证:</label>
+	          <input type="text" id="idcard_hide" name="idcard" value="输入身份证" nullmsg="身份证不能为空！" datatype="card" errormsg="身份证必须是18位！" sucmsg="身份证验证通过！"/>
+        </div>
+         <div id="phone">
+	          <label>手机号:</label>
+	          <input type="text" id="phone_hide" name="phone" value="输入手机号" nullmsg="手机号不能为空！" datatype="m" errormsg="手机号必须是11位！" sucmsg="手机号验证通过！"/>
+        </div>
+      
+        <div id="city">
+	          <label>居住地:</label>
+	          <input type="text" id="city_hide" name="city" value="输入地址" nullmsg="地址不能为空！" />
+        </div>
+         <div id="picture">
+	          <label>头像:</label>
+	          <input type="file" id="picture_hide" name="p" />头像
+        </div>
+         <div id="email">
+	          <label>邮箱:</label>
+	          <input type="text" id="email_hide" name="email" value="输入邮箱" nullmsg="邮箱不能为空！" />
+        </div>
+         <div id="sex">
+	          <label>性别:</label>
+	          <input type="radio" name="sex" value="男"/>男
+	          <input type="radio" name="sex" value="女" checked/>女
+        </div>
+        <div id="login">
+          <button type="submit">注册</button>
+        </div>
+      </form>
+    </div>
+     <!-- 结束-->
+     <!-- 忘记密码开始-->
+    <div class="hide">
+    <div class="sec_error_box"></div>
+      <form action="../cust/fHtml" method="post">
+        <div id="username">
+          <label>手机号：</label>
+          <input type="text" id="iphone" name="iphone" value="输入手机号" nullmsg="手机号不能为空！" datatype="m" />
+          
+        </div>
+        <div id="code">
+          <input type="text" id="yzm" name="yzm" onblur="f2()" value="输入验证码" nullmsg="验证码不能为空！" />
+          <input class="yanzhengma" type="button" onclick="yz()" value="发送验证码"/>
+         </div>
+        <div id="login">
+          <button type="submit">登录</button>
+        </div>
+      </form>
+    </div>
+     <!-- 教务登录结束-->
+  </div>
+</div>
+<div class="screenbg">
+  <ul>
+    <li><a href="javascript:;"><img src=" ../img/0.jpg"></a></li>
+    <li><a href="javascript:;"><img src=" ../img/1.jpg"></a></li>
+    <li><a href="javascript:;"><img src=" ../img/2.jpg"></a></li>
+  </ul>
+</div>
+<script type="text/javascript">
+        function yz(){
+            //向目标Controller发起请求
+            $.ajax({
+                url:"../cust/getYzm?iphone="+document.getElementById("iphone").value,
+                dataType:"JSON",
+                type:"post",
+                success:function(data){
+
+                 },
+                error:function(data2){
+
+                }
+        });
+    }
+    function f2(){ //判断输入的验证码是否正确
+        if(document.getElementById("yzm").value!=null || document.getElementById("yzm").value!=""){
+            $.ajax({
+                url:"../cust/yanzhengma?yzm="+document.getElementById("yzm").value,
+                dataType:"json",
+                type:"POST",
+                success:function(data){
+                    if(data.message!="success"){
+                        document.getElementById("yzm").value="";
+                        alert("验证码输入错误！");
+                    }
+                },
+                error:function(data){
+
+                }
+            });
+        }
+    }
+    </script>
+</body>
+</html>
+
+>>>>>>> branch 'master' of https://github.com/weihongbi/FriendPension.git
