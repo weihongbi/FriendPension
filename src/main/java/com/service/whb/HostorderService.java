@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.dao.whb.HostorderDAO;
+import com.entity.Hostorder;
 
 @Service
 public class HostorderService {
@@ -15,5 +16,11 @@ public class HostorderService {
 	HostorderDAO dao;
 	public List<Map<String,Object>> queryO(){
 		return dao.queryO();
+	}
+	public Integer update(Integer hoid) {
+		return dao.update(hoid);
+	}
+	public List<Hostorder> query(Integer hoid){
+		return dao.query(hoid);
 	}
 }

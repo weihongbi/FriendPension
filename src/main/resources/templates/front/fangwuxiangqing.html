@@ -19,7 +19,6 @@
 
 <!--header-->
  
-
 <div class="detail_wrapper">
     <div class="detail_head clearfix">
         <a href="javascript:if(confirm(%27http://www.xiaozhu.com/  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27)) =%27http://www.xiaozhu.com/%27" tppabs="http://www.xiaozhu.com/" class="xz_logo_detail">小猪</a><span class="slogan_v2 slogan_black"></span>
@@ -37,11 +36,11 @@
                 </div>
             </li>
             <li>
-                <a href="#ongo" class="icon_iphone">手机小猪</a>
+                <!-- <a href="#ongo" class="icon_iphone">手机小猪</a>
                   <div class="head_pop w_120 top40">
                    <div><img src="/img/code_pic.png" tppabs="http://xm.xiaozhu.com/images/code_pic.png" alt="小猪" title="小猪"/></div>
                    <a href="javascript:if(confirm(%27http://www.xiaozhu.com/appdownload/fk  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27)) =%27http://www.xiaozhu.com/appdownload/fk%27" tppabs="http://www.xiaozhu.com/appdownload/fk"  target="_blank">了解更多</a>
-              </div>
+              </div> -->
             </li>
                         <li><a rel="nofollow" data-href="javascript:if(confirm(%27http://www.xiaozhu.com/publish  \n\nThis file was not retrieved by Teleport Ultra, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?%27)) =%27http://www.xiaozhu.com/publish%27" tppabs="http://www.xiaozhu.com/publish" class="btn_free show-register-box" id = "Pub_Btn">免费发布房源</a></li>
                     </ul>
@@ -178,6 +177,7 @@
          <div class="pho_info">
              <h4>
                  <em th:text="${l.hname}"></em>
+                 <span id="homeid" style=" display: none ">[[${l.hid}]]</span>
              </h4>
              <p title="福建省厦门市思明区厦禾路810-820号">
                  <em class="col_pink">
@@ -185,16 +185,7 @@
                     <a href="" th:text="${l.province}"></a> &gt;
                  </em>
                 <span class="pr5" th:text="${l.area}"> </span>
-          	 </p>
-             <div class="labels">
-                    <span class="col_pink" title="下单即可入住，无需房东确认"><em class="suding_ico"></em>速订</span>
-               	 	<span class="col_pink" title="订单无需预付，退房自动扣除（仅限APP）"><em class="xianzhuhoufu_ico"></em>先住后付</span>
-                   <span class="col_pink" title="设施齐全、服务贴心、体验优质"><em class="youpin_ico"></em>优品</span>
-                   <span title="周租月租有折扣，长期入住更实惠"><em class="changzu_ico"></em>长租优惠</span>
-                   <span title="小猪实地考察，确保房源真实性"><em class="yanzhen_ico"></em>验真</span>
-                   <span title="摄影师上门拍摄，100%还原房源"><em class="shipai_ico"></em>实拍</span>
-                  &nbsp;
-             </div>
+          	 </p>             
          </div>
 
          <!--轮播图-->
@@ -496,65 +487,51 @@
                      <a href="#ongo" class="sc_ico collection_btn"></a>
                  </li>
              </ul>
-             <ul>
-                 <li class="top_bar_w1 detail-default-share">
-                     <a href="#ongo" class="share_ico">分享</a>
-                 </li>
+             <ul>                 
                  <li class="top_bar_w4 pr detail-icon-share" style="display:none;">
                      
-                 </li>
-                <li class="top_bar_w2 border_right_none">评分：<em class="score-rate">4.8分</em>
-                </li>
+                 </li>                
             </ul>
          </div>
 
-         <div class="bg_box" id="floatRightBox">
+         <div style="margin-left:-10px;width:260px" class="bg_box" id="floatRightBox">
              <div class="day_top clearfix" id="pricePart">
                  <div class="day_l">&#165;<span th:text="${l.price}"></span><em>起</em></div>
                  <div class="day_r">每晚</div>
              </div>
+             
+             
+             
+             
+             
+             
+             
+             
 
              <!--预定start-->
-             <div id="detailBookArea">
-                 <div class="reserve_box clearfix">
-					<input type="hidden" name="newfiexdPrice" id="newfiexdPrice" value="0"></input>
+	     <div id="detailBookArea">
+	           <div class="reserve_box clearfix">
+			<input type="hidden" name="newfiexdPrice" id="newfiexdPrice" value="0"></input>
 		
 		<div class="reserve_space">
           <div class="clearfix">
             <div class="reserve_date" >
-        			<p id="rent-time">入住日期 — 离开日期</p>
-                 <div class="calendar-box clear" ></div>
-            </div>
-            <div class="select_box">
-                <div class="select_arrow"></div>
-                <input id="sameRoomNum" data-bookroomnum="" type="text" readonly="readonly" value="1套" />
-                <ul class="select_con room_num_select limit10" id="detailRoomNumSelect">
-                     <li data-num="1">1套</li>
-                </ul>
-            </div>
-        </div>
-        <div class="price_top">
-            <div class="reserve_text line_none">
-                                    满7天9.5折 ，满30天9折
-             </div>
-        </div>
+        			<p style="margin-left:-15px;width:251px" id="rent-time">入住日期-离开日期</p>
+                 <div style="margin-left:-400px;" class="calendar-box clear" ></div>
+            </div>            
+        </div>        
         <div class='baituan_wrapper'> </div>
          <div class="order_btn_container">
-              <a class="order_btn" href="#ongo" id="day_yuding">立即预订</a>
+              <a class="order_btn" id="day_yuding" onclick="yuding()">立即预订</a>
          </div>
-            </div>
-   		 <div class="white_bg">
-        	<ul class="cal_box clearfix">
-                 <li>今天<br/>¥535</li>
-				<li>15<br/>¥535</li>
-				<li>16<br/>¥488</li>
-				<li>17<br/>¥488</li>
-				<li>18<br/>¥488</li>
-				<li class="line_none_r"><a id="showMoreCalendar" href="#">全部<br>日历</a> </li>
-	        </ul>
-	    </div>
+            </div>   		 
 	</div>                            
   </div>
+  
+  
+  
+  
+  
              <!--预定end-->
 
              <!--landlord info start-->
@@ -807,20 +784,31 @@
     <input type="hidden" id="share_city" value=>
     <input type="hidden" id="hideWechat" value=>
 </div> 
+	<link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/super-calendar.css">
+    <link rel="stylesheet" href="../css/layui.css">
+    <script src="/js/jquery-3.1.1.min.js"></script>
+     <script src="/js/limitTextNum.js"></script> 
+     <script src="/js/super-calendar.js"></script>      
+	<script src="../layui/css/layui.css"></script>
+	<script src="../layui/layui.js"></script>
+     <script type="text/javascript">
+    	$(".calendar-box").superCalendar({
+	        target: "#rent-time",
+	        callback: function(date) {
+	           console.log(date)
+	        }
+	    });    	
+    	function yuding(){
+    		var time = $("#rent-time").html().substring(0,10);
+    		var homeid = $("#homeid").html();
+    		$.post("homesate/find",{yutime:time,hid:homeid},function(data){
+    			alert(data);
+    		});
+    	}
+	</script>
 </body>
 
 </html>
 
- 	<link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/super-calendar.css">
-    <script src="/js/jquery-3.1.1.min.js"></script>
-     <script src="/js/limitTextNum.js"></script> 
-     <script src="/js/super-calendar.js"></script> 
-     <script>
-    	$(".calendar-box").superCalendar({
-        target: "#rent-time",
-        callback: function(date) {
-           console.log(date)
-        }
-    });
-</script>
+ 	

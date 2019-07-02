@@ -2,12 +2,12 @@ package com.entity;
 
 public class Provinces {
 	private int id;
-	private char provinceid;
+	private int provinceid;
 	private String province;
 	public Provinces() {
 		super();
 	}
-	public Provinces(int id, char provinceid, String province) {
+	public Provinces(int id, int provinceid, String province) {
 		super();
 		this.id = id;
 		this.provinceid = provinceid;
@@ -19,10 +19,10 @@ public class Provinces {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public char getProvinceid() {
+	public int getProvinceid() {
 		return provinceid;
 	}
-	public void setProvinceid(char provinceid) {
+	public void setProvinceid(int provinceid) {
 		this.provinceid = provinceid;
 	}
 	public String getProvince() {

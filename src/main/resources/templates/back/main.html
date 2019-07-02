@@ -12,8 +12,7 @@
     <script type="text/javascript">
         $(function(){        	
             // 初始化导航栏
-            $("#tr").tree({            	
-            	//+$("#rid").html()
+            $("#tr").tree({            	            	
                 url:"tree/getTreeByRid?rid="+$("#rid").html(),
                 onClick:function(node){                	 
                     // 判断是否有子节点
@@ -94,22 +93,23 @@
     </script>
 </head>
 <body class="easyui-layout">
-<div data-options="region:'north',width:'100%',height:'60px'">
-   <center><p style="width:100px"><font size="4">欢迎:<span th:text="${session.username}"></span>登录</font></center>
-    <span th:text="${session.user[0].rid}" id="rid" hidden="hidden"></span></p>
-</div>
-
-<!-- 版权 -->
-<div data-options="region:'south',width:'100%',height:'20px'">
-    <center>@版权</center>
+<div data-options="region:'north',width:'100%',height:'73px'">
+	<img src="images/top.jpg" style="width:100%;height:68px"/>
+	<p style="margin-top:-50px; width:100px"><font size="3">欢迎:  <b>[[${session.username}]]</b>  登录</font></p>	
+   <center><p style="margin-top:-50px; width:255px "><font size="5"><b>民   宿  后  台  管  理  系  统</b></font>
+    <span th:text="${session.user[0].rid}" id="rid" hidden="hidden"></span></p></center>
 </div>
 <!-- 导航 -->
-<div id="navigationBar" data-options="region:'west',width:'20%',title:'导航栏',split:true,iconCls:'icon-add'">
+<div id="navigationBar" data-options="region:'west',width:'20%',title:'  导 航 栏',split:true,iconCls:'icon-png'">
     <ul id="tr"></ul>
 </div>
 <!-- 内容 -->
-<div data-options="region:'center',width:'80%'">
+<div data-options="region:'center',width:'80%',split:true">
     <div id="tt"></div>
+</div>
+<!-- 版权 -->
+<div data-options="region:'south',width:'100%',height:'20px'" style="background:lightblue;">
+    <center>@版权所有</center>
 </div>
 </body>
 </html>

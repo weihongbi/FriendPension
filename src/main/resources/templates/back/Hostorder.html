@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html  lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../easyui/themes/default/easyui.css">    
     <link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css">
     <!-- 在easyui页面中,script执行easyui自己的方法要加入: -->
-    <script type="text/javascript" th:inline="none">
+    <script type="text/javascript" th:inline="none">   
 		var action = "";
 		$(function(){
 			$("#tb").datagrid({
@@ -30,9 +30,94 @@
 				    {field:'states',width:100,title:'订单状态',formatter:states},
 				    {field:'Orderstime',width:100,title:'下单时间',formatter:Orderstime},
 				    {field:'checkouttime',width:100,title:'提前退房时间',hidden:true}
-				   ]]
-			  });			  
+				   ]],
+					 toolbar:[{text:"结算",
+							iconCls:"icon-add",						
+							handler:function(){	
+								var row = $("#tb").datagrid("getSelected");																
+								if(row != null){	
+									if(row.states==1){
+										$("#ff").form("reset");	
+										$("#ff").form("load",row);	
+										var lv = $("#li").textbox('getValue');
+										$("#ping").textbox('setValue',row.money*lv);
+										$("#dong").textbox('setValue',row.money*(1-lv));
+										$("#li").textbox('textbox').attr('readonly',true);
+										$("#ping").textbox('textbox').attr('readonly',true);
+										$("#dong").textbox('textbox').attr('readonly',true);
+										$("#dl").dialog("setTitle","结算信息").dialog("open");
+										action="zhuan/add";
+									}									
+								}
+							}
+					   }]
+			  });
+			$("#dl").dialog("close");
+			$("#dl1").dialog("close");
+			$("#dtb2").dialog("close");
 			});	
+		function submitForm(){
+			$("#ff").form('submit',{
+				url:action,
+				onSubmit:function(){
+					var rs = $("#ff").form("validate");
+					return rs;
+				},
+				success:function(data){				
+					$("#dl").dialog("close");					
+					var row = $("#tb").datagrid("getSelected");	
+					$("#dtb2").dialog("setTitle","图片信息").dialog("open");												
+					$("#tb2").datagrid({ 
+						url:"zhuan/queryZhuan?hoid="+row.hoid,
+						fitColumns:true,
+						singleSelect:true,								
+						title:"收益信息",
+						columns:[[    
+						    {field:"hoid",title:'编号',width:150},
+						    {field:"money",title:'总金额',width:150},
+						    {field:"extractrate",title:'收取利率',width:150},
+						    {field:"pingprice",title:'平台收益',width:150},
+						    {field:"dongprice",title:'房东收益',width:150},
+						    {field:"cname",title:'房东姓名',width:150}
+						 ]],
+						 toolbar:[{text:"转账房东",
+								iconCls:"icon-add",						
+								handler:function(){	
+									var row = $("#tb").datagrid("getSelected");																
+									if(row != null){	
+										if(row.states==1){
+											$("#ff1").form("reset");	
+											$("#ff1").form("load",row);
+											var lv = $("#li").textbox('getValue');
+											$("#lilu").textbox('setValue',lv);
+											$("#dongmoney").textbox('setValue',row.money*(1-lv));
+											$("#dl1").dialog("setTitle","转账信息").dialog("open");
+											action = "transfer/add?hoid="+row.hoid+"&hid="+row.hid;											
+										}									
+									}
+								}
+						   }]
+					});					
+				}
+			});
+		}
+		function submitForm1(){
+			$("#ff1").form('submit',{
+				url:action,
+				onSubmit:function(){
+					var rs = $("#ff1").form("validate");
+					return rs;
+				},
+				success:function(){
+					$("#dl1").dialog("close");
+					$("#dtb2").dialog("close");
+					$("#tb").datagrid("reload");
+				}
+			});
+		}
+		function clearForm1(){
+			$("#ff1").form("reset");
+		}
 			function myformatter(date){ 
 				var y = date.getFullYear(); 
 				var m = date.getMonth()+1; 
@@ -56,12 +141,63 @@
 					return "未付款";
 				}else if(value==1){
 					return "已付款";
+				}else if(value==2){
+					return "已付款,已转账";
 				}
 				return ""; 
-		 	}
+		 	}		
 	</script>
 </head>
-<body>
-	<table id="tb"></table>
+<body>	
+	<table id="tb"></table>	
+	<div class="easyui-dialog" style="width:800px;height:300px;padding:10px 60px;" id="dtb2">
+  		<table id="tb2"></table>
+  	</div>
+	<div class="easyui-dialog" style="width:350px;height:350px;padding:10px 60px;" id="dl">
+		<form id="ff" method="post">					
+			<div style="margin-bottom:20px; display: none;">
+				<input class="easyui-textbox" style="width:100%" data-options="label:'订单编号：',required:true" id="orderid" name="hoid">			
+			</div>						
+			<div style="margin-bottom:20px;">
+				<input class="easyui-textbox" style="width:100%" data-options="label:'抽取利率：',required:true" id="li" name="extractrate" value="0.1">			
+			</div>	
+			<div style="margin-bottom:20px;">
+				<input class="easyui-textbox" style="width:100%" data-options="label:'平台收益：',required:true" id="ping" name="pingprice">			
+			</div>	
+			<div style="margin-bottom:20px">
+				<input class="easyui-textbox" style="width:100%" data-options="label:'转账房东金额：',required:true" id="dong" name="dongprice">			
+			</div>				
+		</form>
+		
+		<div style="text-align:center;padding:5px 0">
+			<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px">结算</a>
+		</div>
+	</div>
+	<div class="easyui-dialog" style="width:350px;height:350px;padding:10px 60px;" id="dl1">
+		<form id="ff1" method="post">					
+			<div style="margin-bottom:20px;display: none">
+				<input class="easyui-textbox" style="width:100%" data-options="label:'操作人编号：',required:true" th:value="${session.user[0].rid}" name="empid">			
+			</div>						
+			<div style="margin-bottom:20px;display: none">
+				<input class="easyui-textbox" style="width:100%" data-options="label:'总金额：',required:true" name="money">			
+			</div>
+			<div style="margin-bottom:20px;display: none">
+				<input class="easyui-textbox" style="width:100%" data-options="label:'每晚价格：',required:true" name="price">			
+			</div>
+			<div style="margin-bottom:20px;display: none">
+				<input class="easyui-textbox" style="width:100%" data-options="label:'房东编号：',required:true" name="cid">			
+			</div>	
+			<div style="margin-bottom:20px;">
+				<input class="easyui-textbox" style="width:100%" data-options="label:'收取利率：',required:true" id="lilu" name="extractrate">			
+			</div>	
+			<div style="margin-bottom:20px;">
+				<input class="easyui-textbox" style="width:100%" data-options="label:'转账房东金额：',required:true" id="dongmoney" name="hostmoney">			
+			</div>					
+		</form>
+		
+		<div style="text-align:center;padding:5px 0">
+			<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm1()" style="width:80px">结算</a>
+		</div>
+	</div>
 </body>
 </html>

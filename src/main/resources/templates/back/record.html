@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript" src="../easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../easyui/myvalidate.js"></script>
+    <link rel="stylesheet" type="text/css" href="../easyui/themes/default/easyui.css">    
+    <link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css">
+    <!-- 在easyui页面中,script执行easyui自己的方法要加入: -->
+    <script type="text/javascript" th:inline="none">
+		var action = "";
+		$(function(){
+			$("#tb").datagrid({
+				width:"100%",
+				url:"transfer/queryAll",
+				fitColumns:true, 
+				singleSelect:true,
+				columns:[[
+				    {field:'tid',width:50,title:'编号'},
+				    {field:'empname',width:50,title:'员工姓名'},
+				    {field:'operationtime',width:100,title:'转账时间'},	
+				    {field:'money',width:100,title:'总金额'},
+				    {field:'extractrate',width:100,title:'平台利率'},
+				    {field:'price',width:100,title:'每晚价格'},
+				    {field:'hostmoney',width:100,title:'房东金额'},
+				    {field:'cname',width:100,title:'房东姓名'}				   
+				   ]]
+			  });
+			});			
+	</script>
+</head>
+<body>
+	<table id="tb"></table>
+</body>
+</html>

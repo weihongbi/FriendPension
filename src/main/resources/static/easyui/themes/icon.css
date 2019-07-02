@@ -1,3 +1,13 @@
+.fristpng{
+	background:url('icons/1.png') no-repeat center center;
+}
+.twopng{
+	background:url('icons/2.png') no-repeat center center;
+}
+.icon-png{
+	background:url('icons/6.png') no-repeat center center;
+}
+
 .icon-blank{
 	background:url('icons/blank.gif') no-repeat center center;
 }
@@ -93,13 +103,4 @@
 }
 .icon-large-chart{
 	background:url('icons/large_chart.png') no-repeat center center;
-}
-
-
-.icon-1{
-	background:url('icons/1.ico') no-repeat center center;
-}
-
-.icon-2{
-	background:url('icons/2.ico') no-repeat center center;
 }

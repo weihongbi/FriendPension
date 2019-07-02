@@ -5,19 +5,21 @@ public class Homestate {
 	private String checkintime;
 	private String leavetime;
 	private Integer hid;
-	private Integer hstate;
+	private Integer cid;
 	public Homestate() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Homestate(Integer sid, String checkintime, String leavetime, Integer hid, Integer hstate) {
+	
+	public Homestate(Integer sid, String checkintime, String leavetime, Integer hid, Integer cid) {
 		super();
 		this.sid = sid;
 		this.checkintime = checkintime;
 		this.leavetime = leavetime;
 		this.hid = hid;
-		this.hstate = hstate;
+		this.cid = cid;
 	}
+
 	public Integer getSid() {
 		return sid;
 	}
@@ -42,17 +44,19 @@ public class Homestate {
 	public void setHid(Integer hid) {
 		this.hid = hid;
 	}
-	public Integer getHstate() {
-		return hstate;
+	
+	public Integer getCid() {
+		return cid;
 	}
-	public void setHstate(Integer hstate) {
-		this.hstate = hstate;
+
+	public void setCid(Integer cid) {
+		this.cid = cid;
 	}
+
 	@Override
 	public String toString() {
 		return "Homestate [sid=" + sid + ", checkintime=" + checkintime + ", leavetime=" + leavetime + ", hid=" + hid
-				+ ", hstate=" + hstate + "]";
+				+ ", cid=" + cid + "]";
 	}
 	
-
 }

@@ -41,14 +41,18 @@ public class HtmlController {
     public String housewhtml(){
         return "back/housew";
     }    
+    @RequestMapping("recordhtml")
+    public String recordhtml(){
+        return "back/record";
+    }
     @RequestMapping("hostorderhtml")
     public String hostorderhtml(){
         return "back/hostorder";
     }
     
     
-    @RequestMapping("indexhtml")
-    public String indexhtml(){
-        return "front/index";
+    @RequestMapping("fangwuqinghtml")
+    public String fangwuqinghtml(){
+        return "front/fangwuxiangqing";
     }
 }
