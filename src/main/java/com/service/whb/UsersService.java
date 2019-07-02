@@ -13,6 +13,7 @@ import java.util.Map;
 public class UsersService {
     @Resource
     UsersDAO dao;
+    
     public List<Users> find(String uname){
         return dao.find(uname);
     }

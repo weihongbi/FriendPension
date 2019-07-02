@@ -10,20 +10,17 @@ public class Apartments {
 	public Apartments() {
 		super();
 	}
-	
-	public int getBedroom() {
-		return bedroom;
-	}
-
-	public void setBedroom(int bedroom) {
-		this.bedroom = bedroom;
-	}
-
 	public int getApartmentsid() {
 		return Apartmentsid;
 	}
 	public void setApartmentsid(int apartmentsid) {
 		Apartmentsid = apartmentsid;
+	}
+	public int getBedroom() {
+		return bedroom;
+	}
+	public void setBedroom(int bedroom) {
+		this.bedroom = bedroom;
 	}
 	public int getParlor() {
 		return parlor;
@@ -54,8 +51,4 @@ public class Apartments {
 		return "Apartments [Apartmentsid=" + Apartmentsid + ", bedroom=" + bedroom + ", parlor=" + parlor + ", toilet="
 				+ toilet + ", cookhouse=" + cookhouse + ", balcony=" + balcony + "]";
 	}
-	
-	
-	
-
 }

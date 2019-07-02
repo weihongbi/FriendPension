@@ -5,8 +5,7 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.dao.lah.houseDao;
+import com.dao.lah.houseDaoL;
 
 
 
@@ -14,7 +13,7 @@ import com.dao.lah.houseDao;
 @RequestMapping("house")
 public class HouController {
 	@Resource
-    houseDao dao;
+    houseDaoL dao;
 	
 	
 	  @RequestMapping("query") 

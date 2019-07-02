@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 @Mapper
-public interface houseDao {
+public interface houseDaoL {
 	
 	List<Map<String,Object>> queryId();
 	List<Map<String,Object>> queryAll();
