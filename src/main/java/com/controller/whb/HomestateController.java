@@ -18,8 +18,8 @@ public class HomestateController {
 	HomestateService service;
 	@RequestMapping("find")
 	@ResponseBody
-	public String find(String yutime,Integer hid) {
-		List<Homestate> find = service.find(yutime, hid);
+	public String find(Integer hid) {
+		List<Homestate> find = service.find(hid);
 		if(find.size()==0) {
 			//service.addHome(h);
 			return "1";

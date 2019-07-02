@@ -789,9 +789,7 @@
     <link rel="stylesheet" href="../css/layui.css">
     <script src="/js/jquery-3.1.1.min.js"></script>
      <script src="/js/limitTextNum.js"></script> 
-     <script src="/js/super-calendar.js"></script>      
-	<script src="../layui/css/layui.css"></script>
-	<script src="../layui/layui.js"></script>
+     <script src="/js/super-calendar.js"></script>      	
      <script type="text/javascript">
     	$(".calendar-box").superCalendar({
 	        target: "#rent-time",
@@ -801,9 +799,9 @@
 	    });    	
     	function yuding(){
     		var time = $("#rent-time").html().substring(0,10);
-    		var homeid = $("#homeid").html();
-    		$.post("homesate/find",{yutime:time,hid:homeid},function(data){
-    			alert(data);
+    		var homeid = $("#homeid").html();    	
+    		$.post("homesate/find",{"hid":homeid},function(date){
+    			console.log(date)
     		});
     	}
 	</script>

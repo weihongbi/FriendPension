@@ -15,6 +15,6 @@ public interface HomestateDAO {
 	Integer homeAdd(Homestate h);
 	@Delete("delete from homestate where sid=#{sid}")
 	Integer homeDel(Integer sid);
-	@Select("select * from homestate where checkintime<#{yutime} AND leavetime>#{yutime} AND hid=#{hid}")
-	List<Homestate> query(String yutime,Integer hid);
+	@Select("select * from homestate where checkintime<'2019-07-05' AND leavetime>'2019-07-05' AND hid=#{hid}")
+	List<Homestate> query(Integer hid);
 }

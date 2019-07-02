@@ -21,7 +21,7 @@ public class HomestateService {
 	public Integer delHome(Integer sid) {
 		return dao.homeDel(sid);
 	}
-	public List<Homestate> find(String yutime,Integer hid){
-		return dao.query(yutime, hid);
+	public List<Homestate> find(Integer hid){
+		return dao.query(hid);
 	}
 }
