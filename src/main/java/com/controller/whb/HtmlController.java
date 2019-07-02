@@ -46,8 +46,12 @@ public class HtmlController {
         return "back/record";
     }
     @RequestMapping("hostorderhtml")
-    public String hostorderhtml(){
+    public String hostorderhtml1(){
         return "back/hostorder";
+    }
+    @RequestMapping("tiorderhtml")
+    public String tiorderhtml(){
+        return "back/tiorder";
     }
     
     

@@ -44,10 +44,8 @@ public class CustomerController {
     public String Login(HttpServletRequest request,String cname,String password){
             try {
                 List<Customers> list = cs.login(cname, password);
-                System.out.println(list);
                 if(list.size()==1){
                 	request.getSession().setAttribute("Loginname",cname);
-                    System.out.println(cname);
                     return "front/list";
                 }else {
                     return "front/error";

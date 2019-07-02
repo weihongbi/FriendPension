@@ -798,10 +798,12 @@
 	        }
 	    });    	
     	function yuding(){
-    		var time = $("#rent-time").html().substring(0,10);
-    		var homeid = $("#homeid").html();    	
-    		$.post("homesate/find",{"hid":homeid},function(date){
-    			console.log(date)
+    		var checkintime = $("#rent-time").html().substring(0,10);
+    		var leavetime = $("#rent-time").html().substring(11,21);
+    		var homeid = $("#homeid").html(); 
+    		$.post("../homesate/find",{"yutime":checkintime,"leavetime":leavetime,"cid":1,"hid":homeid},function(date){
+    			alert(date);
+    			alert(date.leavetime);
     		});
     	}
 	</script>
