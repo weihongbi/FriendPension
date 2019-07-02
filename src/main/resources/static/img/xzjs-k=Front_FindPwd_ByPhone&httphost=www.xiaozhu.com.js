@@ -3,7 +3,15 @@
 var domain = "http://jci.xiaozhustatic1.com/e19061101/www.xiaozhu.com";
 var webimIframUrl = window.location.protocol+"//xiaozhu.com/webim.html";
 var uploadImageUrl = "https://imageupload.xiaozhu.com/imgin4uploadify.php";
+<<<<<<< HEAD
 var jciUrl = "http://jci.xiaozhustatic1.com/";
+=======
+<<<<<<< HEAD
+var jciUrl = "http://jci.xiaozhustatic1.com/";
+=======
+var jciUrl = "http://jci.xiaozhustatic2.com/";
+>>>>>>> branch 'master' of https://github.com/weihongbi/FriendPension.git
+>>>>>>> branch 'master' of https://github.com/weihongbi/FriendPension.git
 var webimYUI = "{{{webimYUI}}}";
 var webimV2 = "{{{webimV2}}}";
 var client_id_youku = '16edde5f79e61324'; 

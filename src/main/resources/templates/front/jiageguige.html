@@ -413,35 +413,30 @@
 		var bujiedai=$("#bujiedai").val();
 		var userule=$("#userule").val();
 		var hiddentips=$("#hiddentips").val();
-		$.ajax({
-			url:"../priceRule/add",
-			type:"post",
-			async: false,//url
-            cache: false,
-            data: {price:money,promotion:promotion,earnest:cashPledgeVal,cleaningFee:cleanfee,allow:yes,priceRule:addtionalprice},
-			success:function(){
-				$.ajax({
-					url:"../rule/add",
-					type:"post",
-					async: false,//url
-		            cache: false,
-		            data: {deal:deal,renege:renege,rule:rule,minday:minday,maxday:maxday,reception:jiedai,otherRequire:userule,hoideTips:hiddentips},
-					success:function(){
-						$.ajax({
-							url:"../house/updateHouse",
-							type:"post",
-							async: false,//url
-				            cache: false,
-				            data: {},
-							success:function(){
-								
-							}
-						});
-					}
-				});
-			}
-		});
-		 
+		var is=$("#check3").is(":checked") ? 1:0;
+		if(is==0){
+			alert("请选择您已同意房东规则和房源上线标准");
+		}else{
+			$.ajax({
+				url:"../priceRule/add",
+				type:"post",
+				async: false,//url
+	            cache: false,
+	            data: {price:money,promotion:promotion,earnest:cashPledgeVal,cleaningFee:cleanfee,allow:yes,priceRule:addtionalprice},
+				success:function(){
+					$.ajax({
+						url:"../rule/add",
+						type:"post",
+						async: false,//url
+			            cache: false,
+			            data: {deal:deal,renege:renege,rule:rule,minday:minday,maxday:maxday,reception:jiedai,otherRequire:userule,hoideTips:hiddentips},
+						success:function(){
+							
+						}
+					});
+				}
+			});
+		}
 	}
 </script>        
 </body>

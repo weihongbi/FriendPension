@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -107,29 +108,19 @@
                 <div class="address_text">房源位于：</div>
                 
                 <div class="address_list">
-                    <select id="province" name="province"  xm-select="select1" style="height:50px;width:120px;">
-						<option 
-						    th:each="province: ${province}"
-						    th:value="${province.provinceid}"
-						    th:text="${province.province}"
+                    <select id="province" name="province" xm-select="select1" style="height:50px;width:120px;" onchange="showCity()">
+						<option  
+							th:each="p: ${province}"
+						    th:value="${p.provinceid}"
+						    th:text="${p.province}"
 						    >
 						</option>
 					</select>
-					<select id="city" name="city"  xm-select="select1" style="height:50px;width:120px;">
-						<option 
-						    th:each="city : ${city}"
-						    th:value="${city.cityid}"
-						    th:text="${city.city}"
-						    >
-						</option>
+					<select id="city" name="city" style="height:50px;width:120px;" onchange="showAreas()">
+						<option value="0">请选择</option>
 					</select>
-					<select id="area" name="area"  xm-select="select1" style="height:50px;width:120px;">
-						<option 
-						    th:each="area : ${area}"
-						    th:value="${area.areaid}"
-						    th:text="${area.area}"
-						    >
-						</option>
+					<select id="areas" name="areas" style="height:50px;width:120px;">
+						<option value="0">请选择</option>
 					</select>
                 </div>
             </div>
@@ -443,10 +434,42 @@
         <script type="text/javascript" src="//jci.xiaozhustatic1.com/e19061101/xzjs?k=Pub_Index&httphost=www.xiaozhu.com"></script>
         <script type="text/javascript" src="../js/jquery-3.1.1.js"></script>
 <script type="text/javascript">
+function showCity(){
+	$("#city").html("<option value=-1>请选择</option>");
+	var province=$("#province").val();
+	$.ajax({
+		url:"../fabufangyuan/listCity",
+		data:{provinceid:province},
+		type:"post",
+		success:function(data){
+			for(var i=0;i<data.length;i++){
+				var cityid=data[i].cityid;
+				var city=data[i].city;
+				$("#city").append("<option value="+cityid+">"+city+"</option>")
+			}
+		}
+	});
+}
+function showAreas(){
+	$("#areas").html("<option value=-1>请选择</option>");
+	var city=$("#city").val();
+	$.ajax({
+		url:"../fabufangyuan/listArea",
+		data:{cityid:city},
+		type:"post",
+		success:function(data){
+			for(var i=0;i<data.length;i++){
+				var areaid=data[i].areaid;
+				var area=data[i].area;
+				$("#areas").append("<option value="+areaid+">"+area+"</option>")
+			}
+		}
+	});
+}
 function save(){
 	var province=$("#province").val();
 	var city=$("#city").val();
-	var area=$("#area").val();
+	var areas=$("#areas").val();
 	var houseType=$("#roleId").val();
 	var rentid=$("#rentid").val();
 	var shi=$("#shi").val();
@@ -482,7 +505,7 @@ function save(){
 						type:"post",
 						async: false,
 			            cache: false,
-			            data: {provinceId:province,cityid:city,areaid:area,houseTypeId:houseType,rentid:rentid,rentarea:mianji,toiletTypeId:solo,livablePeople:livablePeople,together:no,identicalHouse:identicalHouse},
+			            data: {provinceId:province,cityid:city,areaid:areas,houseTypeId:houseType,rentid:rentid,rentarea:mianji,toiletTypeId:solo,livablePeople:livablePeople,together:no,identicalHouse:identicalHouse},
 						success:function(){
 							window.location.href="http://localhost:8081/fabufangyuan/houseDepict";
 							}
@@ -494,5 +517,4 @@ function save(){
 }
 </script>
 </body>
-
 </html>

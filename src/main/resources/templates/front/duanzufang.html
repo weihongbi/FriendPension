@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+<title>短租房</title>
+<meta content="no-transform " http-equiv="Cache-Control" />
+<link href="../img/xzcss-css=jquery-ui,global,page,city,suggest,calendar,sc.css" rel="stylesheet" />
+<!-- <script src="img/tingyun-rum.js"></script> -->
+<!-- css样式文件 -->
+    <style type="text/css">
+
+        
+        #allmap {
+            height: 600px;
+            width: 570px;
+            overflow: hidden;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+<div class="head_wrapper">
+    <a href="#"  class="logo_v2">小猪</a>
+    <span class="slogan_v2 slogan_black"></span>
+    <ul class="nav_R nav_commen">
+                <li>	
+                	<a rel="nofollow" title="" class="show-register-box" href="#">注册</a>
+                </li>
+        <li>&middot;</li>
+        <li><a rel="nofollow" href="#" class="logindialog">登录</a></li>
+        <li>&middot;</li>
+                <li class="current">
+            <a href="#ongo" class="openTri_R">短租指南</a>
+            <div class="head_pop width_58 top40">
+                <div class="pop_column">
+                    <span><a class="fl" href="#">房客指南</a>
+                    <a class="fr" href="#">房东指南</a></span>
+                </div>
+            </div>
+        </li>
+        <li><a rel="nofollow" data-href="#" class="btn_free show-register-box" id="Pub_Btn">免费发布房源</a></li>
+     </ul>
+</div>
+
+<!--/header-->
+    <!--city top-->
+    <form th:action="@{query2}"> 
+    <input id="pageNum" name="pageNum" value="1" type="hidden"/>
+    <div class="city_top_box clearfix" id="list_filter">
+        <div class="city_l">
+		    <div class="clearfix mb_14">
+			    <div class="city_select city_bg">
+			    	<input id="cityName" class="s_int " type="text" name="city" placeholder="城市或目的地">        
+					 
+				</div>
+			     <div class="date_box city_bg city_search_index" id="filter-calendar-box">
+			       	<input id="livablePeople" class="ipt_list1" type="text" name="livablePeople" placeholder="最多宜居" />
+			    </div> 
+		    </div>
+		   
+		  	<div class="city_select city_bg">
+		  	<input type="button" value="搜索" onclick="theLocation()" />
+	      </div>     
+        </div>
+        <div class="city_r">
+	        
+	         <div class="type_bg clearfix" id="rentType">
+		      <h6 class="type_tit1">出租类型</h6>
+		       <div class="info_box" id="facilities">                                     
+	                 <label th:each="lr:${listRent }">
+	                 <input id="rentName" type="checkbox" name="rentName" th:value="${lr.rentName }"/>
+	                 <span th:text="${lr.rentName }"></span>
+	             </label> 
+	           </div>
+		  	</div>	
+	               <div class="type_bg clearfix">
+	                  <h6 class="type_tit2">房型</h6>
+	                  <div class="info_box" id="facilities">                                     
+	                    <label th:each="l:${listhouseType }">
+	                    	<input id="houseTypeName" type="checkbox" name="houseTypeName" th:value="${l.houseTypeName }"/>
+	                      	<span th:text="${l.houseTypeName }"></span>
+	                    </label> 
+	                  </div>
+	               </div>
+	  	
+  </div>	
+   <input type="submit" class="btn_pink4search"  value="确定"/>
+</div> 
+
+
+<!--  <div class="clearfix">  -->
+	      <!--map-->
+	      
+	<div class="city_map">
+	    <div class="list_map">
+	   		<div id="allmap"></div>  
+		</div>       
+	</div>
+	<div class="search_box">
+            <div class="result_box clearfix">
+                <div class="fl"> 	
+                </div>
+                <div class="fr" id="checkfra">
+                </div>
+            </div>
+
+
+
+
+  	<div id="page_list">        
+	    <ul class="pic_list clearfix">
+	    	<li th:each="lh:${list2 }">
+		       	<a target="_blank" href="#" class="resule_img_a">
+		          <img th:title="@{${lh.hname}}" 
+		          th:src="@{${lh.bedroom }}" 
+		          th:alt="@{${lh.hname}}" height="300px"/>
+		    	</a>
+	    		<div class="favorite  lodge_104336911103 wsc_ico" al="104336911103"  title="收藏"></div>
+	    
+	    
+	    	<div class="result_btm_con lodgeunitname" style="cursor:pointer">
+		        <div>
+		        	<span class="result_price">&#165;<i><span th:text="${lh.price}"></span></i>起/晚
+		        	</span>
+		        </div>   
+		        <span class="result_img">
+		           <a class="search_result_gridsum" href="#" target="_blank">
+		             <img class="landlordimage" width="42" height="42"
+		              th:src="@{${lh.picture}}"/></a>
+		        </span>
+		        <div class="result_intro">
+		            <a class="sTitle">
+		           		<span class="result_title hiddenTxt" th:text="@{${lh.hname}}"></span>
+		            </a>
+		            <em class="hiddenTxt">
+		            		<span th:text="@{${lh.province}}"></span>/
+		            		<span th:text="@{${lh.city}}"></span>/
+		            		<span th:text="@{${lh.area}}"></span>/
+		                	<span th:text="@{${lh.rentName}}"></span>/宜住
+		                	<span th:text="@{${lh.livablePeople}}"></span>人
+		            </em>
+		            <p>
+					 <span class="suding_ico" title="速订：下单即可入住，无需房东确认"></span>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             <span class="mianyajin_ico" title="免押金：小猪在线担保、无需支付押金"></span>
+				     <span class="yanzhen_ico" title="验真：小猪实地考察，确保房源真实性"></span>
+					  &nbsp;
+					</p>
+		        </div>
+	    	</div>
+		</li>
+	</ul>
+		 <div class="pagination_v2 pb0_vou">
+		   
+			<span th:switch= "${pageNum}">
+			  	<span th:case="1">
+					<a th:href="@{query2?pageNum=1}" target="_self">上一页</a>
+			  	</span>  
+			  <span th:case="*">
+			  		<a th:href= "@{query2(pageNum=${pageNum-1})}" target="_self">上一页</a>  
+			  </span>  
+		  </span>
+		
+		  <span th:switch= "${pageNum}">   
+			  <span th:case= "${count}">
+					<a th:href= "@{query2(pageNum=${count})}" target="_self">下一页</a>  
+			  </span>
+			  <span th:case="*">
+			  	<a th:href= "@{query2(pageNum=${pageNum+1})}" target="_self">下一页</a> 
+			  </span>  
+		  </span> 	  
+		</div> 
+	</div>
+</div>
+
+<!-- js文件 -->
+	<script type="text/javascript" src="js/jquery-3.1.1.js"></script>
+     <script type="text/javascript" src="http://api.map.baidu.com/api?key=&v=1.3&services=true"></script>
+	<script type="text/javascript">
+        // 在指定容器创建地图实例并设置最大最小缩放级别
+        var map = new BMap.Map("allmap", {
+            minZoom: 5,
+            maxZoom: 19
+        });
+
+        // 初始化地图，设置中心点和显示级别
+        map.centerAndZoom(new BMap.Point(121.36564, 31.22611), 19);
+
+        // 开启鼠标滚轮缩放功能，仅对PC上有效
+        map.enableScrollWheelZoom(true);
+
+        // 将控件（平移缩放控件）添加到地图上
+        map.addControl(new BMap.NavigationControl());
+
+        // 创建位置检索、周边检索和范围检索
+        var local = new BMap.LocalSearch(map, {
+            renderOptions: {
+                map: map
+            } 
+        });
+        // 发起检索
+        function theLocation() {
+        	
+        	var city = document.getElementById("cityName").value;
+            if (city != "") {
+                local.search(city);
+            } 
+        	/* var livablePeople = document.getElementById("livablePeople").value;
+        	var rentName = document.getElementById("rentName").value;
+        	var houseTypeName = document.getElementById("houseTypeName").value;
+        	var pageNum = document.getElementById("pageNum").value; */
+        	
+            /* alert(111);
+            $.ajax({
+				url:"query2",
+				type:"post",
+				data:{pageNum:pageNum,livablePeople:livablePeople,
+					rentName:rentName,houseTypeName:houseTypeName
+					,city:city},
+				success:function(data){
+					  
+					alert(data);
+				}
+			});*/
+        }; 
+    </script>
+
+</body>
+</html>

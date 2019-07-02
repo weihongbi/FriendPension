@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="../easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../easyui/myvalidate.js"></script>
+    <link rel="stylesheet" type="text/css" href="../easyui/themes/default/easyui.css">    
+    <link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css">
+    <!-- 在easyui页面中,script执行easyui自己的方法要加入: -->
+    <script type="text/javascript" th:inline="none">
+		var action = "";
+		$(function(){
+			$("#tb").datagrid({
+				width:"100%",
+				url:"housew/queryHouse",
+				fitColumns:true, 
+				singleSelect:true,
+				columns:[[
+					{field:'hid',width:50,title:'编号'},
+				    {field:'hname',width:50,title:'房屋名称'},
+				    {field:'selfdom',width:100,title:'个性描述'},				    
+				    {field:'interior',width:50,title:'内部情况'},
+				    {field:'traffic',width:100,title:'交通情况'},
+				    {field:'ambitus',width:100,title:'周边情况'},
+				    {field:'states',width:100,title:'状态',formatter:result},
+				    {field:'cid',width:100,title:'房东id',hidden:true}
+				   ]],
+				toolbar:[{text:"通过",
+					  iconCls:"icon-add",
+					  handler:function(){  
+						  var row = $("#info").datagrid("getSelected");
+							if(row != null){
+								$.post("housew/upStates",{"hid":row.hid},function(data){
+									if(data==1){
+										$.messager.show({
+											title:"提示",
+											msg:"审核完成"
+										});			
+									}else{
+										$.messager.show({
+											title:"提示",
+											msg:"审核失败"
+										});
+									}
+								});								
+							}else{
+								$.messager.alert("提示","请选择要完成的数据");
+							}
+				  
+					  }
+			   },'-',{text:"不通过",
+					  iconCls:"icon-edit",
+					  handler:function(data){							
+						var row = $("#tb").datagrid("getSelected");
+						if(row != null){
+							$("#ff").form("reset");
+							$("#ff").form("load",row);
+							$("#dl").dialog("setTitle","添加不通过原因").dialog("open");
+							action="auditw/add";								
+						}else{
+							$.messager.alert("提示","请选择要审核的数据");
+						}
+					  }
+			   },'-',{text:"查看图片",
+						  iconCls:"icon-edit",
+						  handler:function(){						
+							var row = $("#tb").datagrid("getSelected");
+							if(row != null){
+								$("#dtb2").dialog("setTitle","图片信息").dialog("open");												
+								$("#tb2").datagrid({ 
+									url:"housew/queryPhoto?hpid="+row.hpid,
+									fitColumns:true,
+									singleSelect:true,								
+									title:"图片信息",
+									columns:[[    
+									    {field:"hpid",title:'编号',width:150},
+									    {field:"bedroom",title:'卧室',width:150,formatter:imgFormattera},
+									    {field:"parlor",title:'客厅',width:150,formatter:imgFormatterb},
+									    {field:"toilet",title:'卫生间',width:150,formatter:imgFormatterc},
+									    {field:"cookhouse",title:'厨房',width:150,formatter:imgFormatterd},
+									    {field:"rests",title:'其他',width:150,formatter:imgFormattere}
+									 ]]
+								});
+							}else{
+								$.messager.alert("提示","请选择要查看的数据");
+							}
+						  }		
+					  },'-',{text:"查看原因",
+						  iconCls:"icon-edit",
+						  handler:function(){						
+							var row = $("#tb").datagrid("getSelected");
+							if(row != null){
+								$("#dtb3").dialog("setTitle","不通过原因").dialog("open");												
+								$("#tb3").datagrid({ 
+									url:"auditw/queryAuditw?hid="+row.hid,
+									fitColumns:true,
+									singleSelect:true,								
+									title:"未通过原因",
+									columns:[[    
+									    {field:"res",title:'原因',width:200}									    
+									 ]]
+								});
+							}else{
+								$.messager.alert("提示","请选择要查看的数据");
+							}
+						  }		
+					  }]
+			  });
+			  $("#dl").dialog("close");
+			  $("#dtb2").dialog("close");
+			  $("#dtb3").dialog("close");
+			});	
+		function submitForm(){
+			$("#ff").form('submit',{
+				url:action,
+				onSubmit:function(data){
+					alert(data);
+					var rs = $("#ff").form("validate");
+					return rs;
+				},
+				success:function(){
+					$("#dl").dialog("close");
+					$("#tb").datagrid("reload");
+				}
+			});
+		}
+		function clearForm(){
+			$("#ff").form("reset");
+		}
+		function result(value,row,index){
+		     if(value ==0){
+				   return "未审核";
+		       }else{
+		    	   return "已审核";
+		       }
+		 	}
+		//显示图片		
+		function imgFormattera(value,row,index){
+	     if('' != value && null != value){
+	       value = '<img style="width:30px; height:30px" src="' +'images/'+ value + '">';
+	       return  value;
+	       }
+	 	}
+		function imgFormatterb(value,row,index){
+		     if('' != value && null != value){
+		       value = '<img style="width:30px; height:30px" src="' +'images/'+ value + '">';
+		       return  value;
+		       }
+		 	} 
+		function imgFormatterc(value,row,index){
+		     if('' != value && null != value){
+		       value = '<img style="width:30px; height:30px" src="' +'images/'+ value + '">';
+		       return  value;
+		       }
+		 	} 
+		function imgFormatterd(value,row,index){
+		     if('' != value && null != value){
+		       value = '<img style="width:30px; height:30px" src="' +'images/'+ value + '">';
+		       return  value;
+		       }
+		 	} 
+		function imgFormattere(value,row,index){
+		     if('' != value && null != value){
+		       value = '<img style="width:30px; height:30px" src="' +'images/'+ value + '">';
+		       return  value;
+		       }
+		 	} 
+</script>
+</head>
+<body>
+	<table id="tb"></table>	
+	<div class="easyui-dialog" style="width:800px;height:300px;padding:10px 60px;" id="dtb2">
+  		<table id="tb2"></table>
+  	</div>
+  	<div class="easyui-dialog" style="width:300px;height:200px;padding:10px 60px;" id="dtb3">
+  		<table id="tb3"></table>
+  	</div>
+	<div class="easyui-dialog" style="width:300px;height:200px;padding:10px 60px;" id="dl">
+		<form id="ff" method="post">			
+			<div style="margin-bottom:10px;"  hidden="hidden">
+				<input class="easyui-textbox" style="width:100%" data-options="label:'房屋id:',required:true" name="hid">
+			</div>	
+			<div style="margin-bottom:10px;"  hidden="hidden">
+				<input class="easyui-textbox" style="width:100%" data-options="label:'房东id:',required:true" name="cid">
+			</div>
+			<div style="margin-bottom:10px;">
+				<input class="easyui-textbox" style="width:100%" data-options="label:'原因:',required:true" name="res">
+			</div>										
+		</form>
+		<div style="text-align:center;padding:5px 0">
+			<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()" style="width:80px">提交</a>
+			<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()" style="width:80px">重置</a>
+		</div>
+	</div>
+</body>
+</html>

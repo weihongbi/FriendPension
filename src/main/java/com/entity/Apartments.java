@@ -51,8 +51,4 @@ public class Apartments {
 		return "Apartments [Apartmentsid=" + Apartmentsid + ", bedroom=" + bedroom + ", parlor=" + parlor + ", toilet="
 				+ toilet + ", cookhouse=" + cookhouse + ", balcony=" + balcony + "]";
 	}
-	
-	
-	
-
 }

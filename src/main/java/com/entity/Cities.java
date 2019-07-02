@@ -2,13 +2,13 @@ package com.entity;
 
 public class Cities {
 	private int id;
-	private char cityid;
+	private String cityid;
 	private String city;
 	private int provinceid;
 	public Cities() {
 		super();
 	}
-	public Cities(int id, char cityid, String city, int provinceid) {
+	public Cities(int id, String cityid, String city, int provinceid) {
 		super();
 		this.id = id;
 		this.cityid = cityid;
@@ -22,10 +22,10 @@ public class Cities {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public char getCityid() {
+	public String getCityid() {
 		return cityid;
 	}
-	public void setCityid(char cityid) {
+	public void setCityid(String cityid) {
 		this.cityid = cityid;
 	}
 	public String getCity() {

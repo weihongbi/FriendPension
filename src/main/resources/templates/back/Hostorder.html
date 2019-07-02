@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script type="text/javascript" src="../easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" src="../easyui/myvalidate.js"></script>
+    <link rel="stylesheet" type="text/css" href="../easyui/themes/default/easyui.css">    
+    <link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css">
+    <!-- 在easyui页面中,script执行easyui自己的方法要加入: -->
+    <script type="text/javascript" th:inline="none">
+		var action = "";
+		$(function(){
+			$("#tb").datagrid({
+				width:"100%",
+				url:"hostorder/queryO",
+				fitColumns:true, 
+				singleSelect:true,
+				columns:[[
+				    {field:'hoid',width:50,title:'订单编号'},
+				    {field:'hid',width:50,title:'房屋id'},
+				    {field:'cname',width:100,title:'房客姓名'},	
+				    {field:'phone',width:100,title:'手机号'},
+				    {field:'checktime',width:100,title:'入住时间',formatter:checktime},
+				    {field:'leavetime',width:100,title:'离开时间',formatter:leavetime},
+				    {field:'price',width:100,title:'每晚单价'},
+				    {field:'money',width:100,title:'总金额'},				    
+				    {field:'states',width:100,title:'订单状态',formatter:states},
+				    {field:'Orderstime',width:100,title:'下单时间',formatter:Orderstime},
+				    {field:'checkouttime',width:100,title:'提前退房时间',hidden:true}
+				   ]]
+			  });			  
+			});	
+			function myformatter(date){ 
+				var y = date.getFullYear(); 
+				var m = date.getMonth()+1; 
+				var d = date.getDate(); 
+				return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d); 
+			}			
+			function checktime(value,row,index){
+				var date = new Date(value); 
+				return myformatter(date); 
+		 	}
+			function leavetime(value,row,index){
+				var date = new Date(value); 
+				return myformatter(date); 
+		 	}
+			function Orderstime(value,row,index){
+				var date = new Date(value); 
+				return myformatter(date); 
+		 	}
+			function states(value,row,index){
+				if(value==0){
+					return "未付款";
+				}else if(value==1){
+					return "已付款";
+				}
+				return ""; 
+		 	}
+	</script>
+</head>
+<body>
+	<table id="tb"></table>
+</body>
+</html>
