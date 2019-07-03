@@ -36,6 +36,8 @@ public class HomestateController {
 			List<Map<String, Object>> queryAll = dao.queryAll();
 			session.setAttribute("list", queryAll.get(0));
 			Integer total = (((int)(yutime.getTime()-leavetime.getTime())*((int)queryAll.get(0).get("price")))+(int)(queryAll.get(0).get("earnest")));
+			System.out.println(total);
+			
 			return "1";
 		}else {
 			Gson g = new Gson();
