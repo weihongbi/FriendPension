@@ -1,5 +1,6 @@
 package com.service.whb;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -21,7 +22,10 @@ public class HomestateService {
 	public Integer delHome(Integer sid) {
 		return dao.homeDel(sid);
 	}
-	public List<Homestate> find(String yutime,Integer hid){
+	public List<Homestate> find(Date yutime,Integer hid){
 		return dao.query(yutime, hid);
+	}
+	public List<Homestate> find(Integer hid,Integer cid){
+		return dao.find(hid, cid);
 	}
 }

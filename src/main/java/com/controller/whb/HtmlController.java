@@ -51,7 +51,7 @@ public class HtmlController {
     }
     @RequestMapping("tiorderhtml")
     public String tiorderhtml(){
-        return "back/tiorder";
+        return "front/tiorder";
     }
     
     

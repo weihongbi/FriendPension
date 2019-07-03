@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	<script src="/js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">	
+		$(function(){			
+			 var time1 = Date.parse(new Date($("#in").val()));
+			 var time2 = Date.parse(new Date($("#out").val()));
+			 var price = $("#price").val();
+			 var ya = $("#ya").html();
+			 var nDays = Math.abs(parseInt((time2 - time1)/1000/3600/24));
+			 var total = parseInt(nDays*price)+Number(ya);
+			 $("#total").val(total);
+		});
+		function del(){
+			var sid = $("#sid").html();
+			$.post("../homesate/delete",{"sid":sid},function(){
+				window.location.href="../house/query";
+			});
+		}
+	</script>
 </head>
 <body>
-
+	<span id="sid" style="display:none">[[${session.lists.sid}]]</span>
+	<span id="ya" style="display: none">[[${session.list.earnest}]]</span>
+	<a onclick="del()">取消预订</a>
+	<form action="../hostorder/addOreder" method="post">
+		房客id:<input name="cid" th:value="${session.lists.cid}"/><br>
+		入住时间:<input name="checktime" id="in" th:value="${session.lists.checkintime}"/><br>
+		离开时间:<input name="leavetime" id="out" th:value="${session.lists.leavetime}"/><br>
+		房源id:<input name="hid" th:value="${session.lists.hid}"/><br>
+		每晚价格:<input name="price" id="price" th:value="${session.list.price}"/><br>
+		总价格:<input name="money" id="total"/><br>		
+		<input type="submit" value="提交订单"/>
+	</form>
 </body>
 </html>

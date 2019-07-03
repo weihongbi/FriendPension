@@ -23,4 +23,7 @@ public class HostorderService {
 	public List<Hostorder> query(Integer hoid){
 		return dao.query(hoid);
 	}
+	public Integer addOrder(Hostorder h) {
+		return dao.addOrder(h);
+	}
 }

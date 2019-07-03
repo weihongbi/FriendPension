@@ -1,5 +1,6 @@
 package com.dao.whb;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
@@ -16,5 +17,7 @@ public interface HomestateDAO {
 	@Delete("delete from homestate where sid=#{sid}")
 	Integer homeDel(Integer sid);
 	@Select("select * from homestate where checkintime<#{yutime} AND leavetime>#{yutime} AND hid=#{hid}")
-	List<Homestate> query(String yutime,Integer hid);
+	List<Homestate> query(Date yutime,Integer hid);
+	@Select("select * from homestate where hid=#{hid} AND cid=#{cid} ORDER BY leavetime DESC")
+	List<Homestate> find(Integer hid,Integer cid);
 }
