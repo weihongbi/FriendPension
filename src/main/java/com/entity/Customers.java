@@ -6,7 +6,7 @@ public class Customers {
 	private String password;
 	private String idcard;
 	private String phone;
-	private int city;
+	private String city;
 	private String picture;
 	private String email;
 	private String sex;
@@ -15,7 +15,9 @@ public class Customers {
 		super();
 	}
 	
-	public Customers(int cid, String cname, String password, String idcard, String phone, int city, String picture,
+	
+
+	public Customers(int cid, String cname, String password, String idcard, String phone, String city, String picture,
 			String email, String sex) {
 		super();
 		this.cid = cid;
@@ -28,6 +30,8 @@ public class Customers {
 		this.email = email;
 		this.sex = sex;
 	}
+
+
 
 	public int getCid() {
 		return cid;
@@ -69,13 +73,19 @@ public class Customers {
 		this.phone = phone;
 	}
 
-	public int getCity() {
+	
+
+	public String getCity() {
 		return city;
 	}
 
-	public void setCity(int city) {
+
+
+	public void setCity(String city) {
 		this.city = city;
 	}
+
+
 
 	public String getPicture() {
 		return picture;
@@ -101,6 +111,8 @@ public class Customers {
 		this.sex = sex;
 	}
 
+
+
 	@Override
 	public String toString() {
 		return "Customers [cid=" + cid + ", cname=" + cname + ", password=" + password + ", idcard=" + idcard
@@ -108,4 +120,5 @@ public class Customers {
 				+ "]";
 	}
 
+	
 }

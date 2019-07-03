@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="renderer" content="webkit">
+		<meta name="keywords" content="【小猪-短租】日租,短租,租房,家庭公寓,自助公寓,家庭旅馆,旅游">
+		<meta name="description" content="【小猪-短租】最可信、有保障的短租日租在线交易平台" />
+		<meta content="小猪" name="author">
+		<title>个人资料-小猪</title>
+		<meta name="alexaVerifyID" content="r9sOpqmyWotVR8P7fvPILomFMOs" />        
+		<link rel="stylesheet" type="text/css" href="//jci.xiaozhustatic1.com/e19062802/xzcss?css=global,manage,rz,nyroModal,jquery-ui,dialog_front,zhima_icon_div2,nationalsecurity,slideBar,data" />
+    </head>
+<body>
+<div class="header height56">
+    <div class="top"></div>
+    <div class="top_wraper">
+        <div class="top_con">
+			<a class="logo_v2 logo_black" href="http://www.xiaozhu.com">小猪</a>
+			<span class="slogan"></span>
+		    <ul class="nav">
+		        <li class="active">
+		        	<a class="icon_zhinan"  href="http://www.xiaozhu.com/xzweb.php?op=FangDong_Index" rel="nofollow">blgcuf</a>
+		            <div class="sel_box sel_fd">
+		                <p class="p1"><a href="http://www.xiaozhu.com/xzweb.php?op=FangDong_Index"><strong>房东中心</strong></a></p>
+		                <div class="twobox clearfix">
+		                    <a href="http://www.xiaozhu.com/xz_web2/order/pages/landlord/orderList.html">订单管理</a>
+		                    <a href="http://www.xiaozhu.com/xzweb.php?op=FangDong_SettlementInfo">结算统计</a>
+		                    <a href="http://www.xiaozhu.com/xzweb.php?op=FangDong_ShowLetter">聊天记录</a>
+		                    <a href="http://www.xiaozhu.com/xzweb.php?op=FangDong_Comment&filterType=waitComment&fkCmtFilter=all">我的点评</a>
+		                    <a href="http://www.xiaozhu.com/xzweb.php?op=FangDong_MyRooms">房源信息</a>
+		                    <a href="http://www.xiaozhu.com/xzweb.php?op=FangDong_MyRentCalendarList">价格房态</a>
+		                    <a href="http://www.xiaozhu.com/xzweb.php?op=FD_DiaryList">短租日记</a>
+		                    <a href="http://www.xiaozhu.com/xzweb.php?op=FangDong_UserInfo">个人资料</a>
+		              	</div>
+		                <p class="p1"><a href="http://www.xiaozhu.com/xzweb.php?op=FangKe_Index"><strong>房客中心</strong></a></p>
+		                <div class="twobox clearfix">
+		                    <a href="http://www.xiaozhu.com/xz_web2/order/pages/lodger/list.html">我的订单</a>
+		                    <a href="http://www.xiaozhu.com/xzweb.php?op=FangKe_ShowLetter">聊天记录</a>
+		                    <a href="http://www.xiaozhu.com/xzweb.php?op=FangKe_Comment">我的点评</a>
+		                    <a href="http://www.xiaozhu.com/xzweb.php?op=FangKe_UserInfo">个人资料</a>
+		                </div>
+		                <p class="exit"><a href="http://www.xiaozhu.com/logout" id="IM-Logout">退出</a></p>
+		            </div>
+		        </li>
+		        <li><span class="line_index"></span></li>
+		        <li class="active"> 
+		            <a class="icon_zhinan" href="#ongo">短租指南</a> 
+		            <div class="sel_box sel_zhinan">
+		                <a href="http://www.xiaozhu.com/xzweb.php?op=Help_UserGuide&type=tenant">房客指南</a>
+		                <a href="http://www.xiaozhu.com/xzweb.php?op=Help_UserGuide&type=landlord">房东指南</a>
+		            </div>
+		        </li>
+		    </ul>
+        </div>
+    </div>
+</div>
+	<!--中间-->      
+	<div class="main clearfix">
+	    <div class="siderBar">
+	        <div class="sider_Title sider_bg"><a class="no_pointer" href="#ongo">个人中心首页</a></div>        
+	        <dl class="sider_colum_fd">
+	        	<dt><a class="title_close" href="#">房东中心</a></dt>
+	        	<dd>
+	            	<a href="http://www.xiaozhu.com/xz_web2/order/pages/landlord/orderList.html">订单管理</a>
+	            </dd>
+	        	<dd>
+	            	<a href="http://www.xiaozhu.com/xzweb.php?op=FangDong_SettlementInfo">结算统计</a>
+	            </dd>
+	            <dd>
+	            	<a href="http://www.xiaozhu.com/xzweb.php?op=FangDong_SettlementInfo">房源信息</a>
+	            </dd>
+	            <dd>
+	            	<a href="http://www.xiaozhu.com/xzweb.php?op=FangDong_SettlementInfo">我的点评</a>
+	            </dd>
+	            <dd>
+		        	<a th:href="@{/customers/querycustomers2?cid=1}">个人资料</a>
+		        </dd>
+		        <dd>
+		        	<a th:href="@{/customers/querycustomers3?cid=1}">密码修改</a>
+		        </dd>
+		        <dd>
+		        	<a th:href="@{/collect/querycollect?cid=1}">我的收藏</a>
+		        </dd>
+	    	</dl>
+		    <dl class="sider_colum_fd">
+		        <dt><a class="title_close" href="#">房客中心</a></dt>
+		        <dd>
+	            	<a href="http://www.xiaozhu.com/xz_web2/order/pages/landlord/orderList.html">订单管理</a>
+	            </dd>
+	        	<dd>
+	            	<a href="http://www.xiaozhu.com/xzweb.php?op=FangDong_SettlementInfo">常入住人</a>
+	            </dd>
+	            <dd>
+	            	<a href="http://www.xiaozhu.com/xzweb.php?op=FangDong_SettlementInfo">我的点评</a>
+	            </dd>
+		        <dd>
+		        	<a th:href="@{/customers/querycustomers2?cid=1}">个人资料</a>
+		        </dd>
+		        <dd>
+		        	<a th:href="@{/customers/querycustomers3?cid=1}">密码修改</a>
+		        </dd>
+		        <dd>
+		        	<a th:href="@{/collect/querycollect?cid=1}">我的收藏</a>
+		        </dd>	
+		    </dl>
+		</div>
+		<div class="right_con">
+
+	        <div class="manage_breadcrumb">
+	        	<a th:href="@{/customers/querycustomers?cid=1}">我是房东</a>
+	            <span> &gt;</span>我的设置
+	            <span> &gt;</span><strong>个人资料</strong>
+	        </div>  
+	        <form th:action="@{/customers/upcus}" method="post">  
+			<div class="data_box clearfix" >
+			    <h4 class="data_tit">基本信息</h4>
+			    <div class="basic_box">
+				    <ul class="data_norms">
+					    <li>
+					    	<label>用户名：</label>
+					    	<input th:value="${clist[0].cname}" name="cname" class="data_norms_input"></input>
+					    </li>
+					    <li>
+					    	<label>手机号码：</label>
+					    	<input  readonly="readonly" th:value="${clist[0].phone}" name="phone" class="data_norms_input" ></input>
+					    </li>
+					    <li>
+					        <label>身份证：</label>     
+					        <input  readonly="readonly" th:value="${clist[0].idcard }" name="idcard" class="data_norms_input" ></input>
+					    </li>
+					    <li>
+					    	<label>邮箱地址：</label> 
+					    	<input  th:value="${clist[0].email }" name="email" class="data_norms_input" ></input>          
+					    </li>
+					    
+					    <input type="hidden" name="cid" th:value="${clist[0].cid}" />
+					    <input type="hidden" name="password" th:value="${clist[0].password}" />
+					    <input type="hidden" name="city" th:value="${clist[0].city}" />
+					    <input type="hidden" name="picture" th:value="${clist[0].picture}" />
+				    </ul>
+			
+					<!-- 修改头像 -->
+				    <div class="head_portrait mt20">
+					    <img src="https://image.xiaozhustatic1.com/21/19,0,64,25523,100,100,d022989e.jpg">
+					    <div>
+					    	<a class="nyroModal editimg" href="http://www.xiaozhu.com/xzweb.php?op=FangDong_ShowUserHeadImage" target="_blank">编辑头像</a>
+					    </div>
+				    </div>
+				    <input  type="submit" th:value="修改" ></input>
+			    </div>
+			</div>
+			</form>
+		</div>
+	</div>
+
+ 	<!-- 页脚 -->
+	<div class="foot_v2">
+		<ul class="foot_ul">
+			<li>
+				<a class="guide" href="http://www.xiaozhu.com/xzweb.php?op=Help_UserGuide&type=tenant" target="_blank">房客指南</a>
+			</li>
+			<li>
+				<a class="guide icon_fk" href="http://www.xiaozhu.com/xzweb.php?op=Help_UserGuide&type=landlord" target="_blank">房东指南</a>
+			</li>
+			<li>
+			    <span class="guide_T">关于我们</span>
+			    <a href="http://www.xiaozhu.com/aboutus" target="_blank">关于小猪</a>
+			    <a href="http://app.mokahr.com/apply/xiaozhu/4514" target="_blank">加入我们</a>
+			    <a href="http://www.xiaozhu.com/contactus" target="_blank">联系我们</a>
+			</li>
+			<li>
+			    <span class="guide_T">网站帮助</span>
+			    <a href="http://www.xiaozhu.com/help/index" target="_blank" >帮助中心</a>
+			    <a href="http://www.xiaozhu.com/sitemap.html" target="_blank">网站地图</a> 
+			</li>
+			<li class="width_280">
+			    <span class="guide_T">网站协议</span><br/>
+			    <a href="http://www.xiaozhu.com/help/service" target="_blank">服务协议</a> 
+			    <a href="http://www.xiaozhu.com/help/landlordRule" target="_blank">房东规则</a>
+			    <a href="http://www.xiaozhu.com/help/tenantRule" target="_blank">房客规则</a>
+			    <a href="http://www.xiaozhu.com/help/auditRule" target="_blank">房源上线标准</a>
+			    <a href="http://www.xiaozhu.com/help/privacy" target="_blank">隐私保护</a>
+			    <a href="http://www.xiaozhu.com/help/copyright" target="_blank">版权声明</a>
+			    <a href="http://www.xiaozhu.com/help/disclaimer" target="_blank">免责声明</a>
+			    <a href="http://www.xiaozhu.com/help/intellectualProperty" target="_blank">知识产权声明</a>
+			    <a href="http://www.xiaozhu.com/help/commentRule" target="_blank">点评发布规则</a>
+			
+			</li>
+			<li class="bigFont online_kf">
+			    <p>客服电话  400 - 010 - 7890</p>
+			    <p>客服邮箱  service@xiaozhu.com</p>
+			</li>
+		</ul>
+		<div class="foot_btm">许可证号：京ICP证140510号 &nbsp;&nbsp; 
+			<a href="//www.anquan.org/s/www.xiaozhu.com" |="" name="mt8SMvYyRDI92b06nuDs8dPFapllCJYidqhM1WlOoGRZ9DWpbo" rel="nofollow" target="_blank">安全联盟</a> &nbsp;&nbsp; 北京快跑信息科技有限公司 &nbsp;&nbsp; 
+			<a href="http://www.xiaozhu.com/images/yingye.jpg" |="" name="yingyezhizhao" rel="nofollow" target="_blank">营业执照号 103613118</a> 
+			<span style="display:none">  &nbsp;&nbsp; 地址：北京市海淀区知春路56号   &nbsp;&nbsp;电话：010-62961978</span>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="/img/jquery.js"></script>
+	<!-- <script type="text/javascript" src="//jci.xiaozhustatic1.com/e19062802/xzjs?k=Footer&httphost=www.xiaozhu.com"></script>
+	<link rel="stylesheet" type="text/css" href="//jci.xiaozhustatic1.com/e19062802/xzcss?css=jquery.mCustomScrollbar,nyroModal,uploadify,shadepage" />
+	<script type="text/javascript" src="//jci.xiaozhustatic1.com/e19062802/js/jquery/lazyload.js"></script>
+	<script type="text/javascript" src="http://www.xiaozhu.com/e19062802/js/webimv4/application/xzim4.js?source=xiaozhu&dm=xiaozhu.com" id="webimSource"></script>
+	
+	<script type="text/javascript" src="//jci.xiaozhustatic1.com/e19062802/xzjs?k=FangDong_Header&httphost=www.xiaozhu.com"></script>
+	<script type="text/javascript" src="//jci.xiaozhustatic1.com/e19062802/xzjs?k=FangDong_UserInfo&httphost=www.xiaozhu.com"></script> -->
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>房源管理</title>
+	
+	<base href="http://localhost:8081/"/>
+    <meta name="keywords" content="keyword1,keyword2,keyword3"/>
+    <meta name="description" content="this is my page"/>
+    <meta name="content-type" content="text/html" charset="UTF-8" />
+    
+    
+	<script type="text/javascript" src="/easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="/easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="/easyui/locale/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="/easyui/myvalidate.js"></script>
+	<link rel="stylesheet" type="text/css" href="/easyui/themes/default/easyui.css"/>
+	<link rel="stylesheet" type="text/css" href="/easyui/themes/icon.css"/>
+    
+
+  </head>
+  <body>
+    
+    <table class="easyui-datagrid" height="500px" style="width:100%" id="tb"
+   		 	data-options="url:'../house/housequery',fitColumns:'true',toolbar:'#tools',singleSelect:true,nowrap:false,pagination:true,pageList:[2,4,6],pageSize:2">
+   			<thead>
+   				<tr>
+   					<th data-options="field:'hid',width:100">编号</th>
+   					<th data-options="field:'hname',width:150">房屋名称</th>
+   					<th data-options="field:'selfdom',width:150">个性描述</th>
+   					<th data-options="field:'interior',width:150">内部情况</th>
+   					<th data-options="field:'traffic',width:150">交通情况</th>
+   					<th data-options="field:'ambitus',width:150">周边情况</th>
+   					<th data-options="field:'price',width:150">价格</th>
+   					<th data-options="field:'reserveWay',width:150">预定方式</th>
+   					<th data-options="field:'states',width:150">房屋状态</th>
+   					<th data-options="field:'cname',width:150">客户姓名</th>
+   					<th data-options="field:'fnum',width:150">反馈次数</th>
+   					<th data-options="field:'birthday',width:150">生日</th>
+   				</tr>
+   			</thead>
+   	</table>
+  </body>
+</html>
