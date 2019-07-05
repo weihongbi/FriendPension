@@ -203,7 +203,7 @@
 						<img id="curBigImage" th:src="@{${l.parlor}}" alt="" />
 						 
 						<img id="curBigImage" th:src="@{${l.cookhouse}}" alt="" />-->
-						<img id="curBigImage" th:src="@{${l.rests}}"/> 
+						<img id="curBigImage" th:src="@{'/images/'+${l.rests}}"/> 
 						
 						
                      </div>
@@ -216,7 +216,7 @@
                      <ul class="detail-thumb-nav">
                          <li>
                              <div class="pho_layer"></div>
-                                 <img th:src="${l.rests}" width="200px"  height="200"/>
+                                 <img th:src="@{'/images/'+${l.rests}}" width="200px"  height="200"/>
                          		
                          </li>   
                       </ul>
@@ -519,7 +519,9 @@
                  <div style="margin-left:-400px;" class="calendar-box clear" ></div>
             </div>  
         </div> 
-        <div style="margin-top:20px">收取押金:[[${l.earnest}]]</div>       
+        <div style="margin-top:20px">收取押金:[[${l.earnest}]]
+        <span id="cid" style="display: none;">[[${session.listcus.cid}]]</span>
+        </div>       
         <div class='baituan_wrapper'> </div>
          <div class="order_btn_container">
               <a class="order_btn" id="day_yuding" onclick="yuding()">立即预订</a>
@@ -800,17 +802,17 @@
     	function yuding(){
     		var checkintime = $("#rent-time").html().substring(0,10);
     		var leavetime = $("#rent-time").html().substring(11,21);
-    		var homeid = $("#homeid").html(); 
-    		$.post("../homesate/find",{"yutime":checkintime,"leavetime":leavetime,"cid":1,"hid":homeid},function(data){    			    		
+    		var homeid = $("#homeid").html();     		
+    		$.post("../homesate/find",{"yutime":checkintime,"leavetime":leavetime,"cid":$("#cid").html(),"hid":homeid},function(data){  
     			if(data==1){
     				window.location.href="../tiorderhtml";
-    			}else{
+    			}else{    			
     				var json = eval("("+data+")");//将json类型字符串转换为json对象    			
         			alert("在"+json.checkintime+"至"+json.leavetime+"已有人预订!");
     			}
     			
     		});
-    	}
+    	}    	
 	</script>
 </body>
 

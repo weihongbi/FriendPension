@@ -15,7 +15,7 @@ import com.entity.Homestate;
 public class HomestateService {
 	@Resource
 	HomestateDAO dao;
-	public Integer addHome(String checkintime,String leavetime,Integer hid,Integer cid) {
+	public Integer addHome(Date checkintime,Date leavetime,Integer hid,Integer cid) {
 		return dao.homeAdd(checkintime,leavetime,hid,cid);
 	}
 	

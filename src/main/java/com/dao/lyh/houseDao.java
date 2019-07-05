@@ -64,10 +64,7 @@ public interface houseDao {
 			"on hou.pruleId=pri.pruleId\r\n" + 
 			"LEFT JOIN homephoto photo\r\n" + 
 			"on hou.hpid=photo.hpid " + 
-			" LEFT JOIN homestate hs " + 
-			"ON hou.state=hs.sid " +
-			"<where>"
-			+ "hs.hstate=0 "
+			 "<where>"
 			+ "<if test='param1 != null '> and c.city like '%${param1}%'</if>"
 			+ " <if test='param2 != null '>and ht.houseTypeName like '%${param2}%'</if> "
 			+ "<if test='param3 != null '>and r.rentName like '%${param3}%'</if>"
@@ -105,11 +102,8 @@ public interface houseDao {
 			"LEFT JOIN pricerule pri\r\n" + 
 			"on hou.pruleId=pri.pruleId\r\n" + 
 			"LEFT JOIN homephoto photo\r\n" + 
-			"on hou.hpid=photo.hpid "
-			+ " LEFT JOIN homestate hs " + 
-			"ON hou.state=hs.sid " + 
+			"on hou.hpid=photo.hpid "+ 
 			"<where> "
-			+ "hs.hstate=0 "
 			+ "<if test='param1 != null '> and c.city like '%${param1}%'</if>"
 			+ "<if test='param2 != null '>and ht.houseTypeName like '%${param2}%'</if> "
 			+ "<if test='param3 != null '>and r.rentName like '%${param3}%'</if>"

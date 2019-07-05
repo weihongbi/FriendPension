@@ -1,6 +1,6 @@
 package com.controller.lah;
 
-import com.dao.lah.hourseTypeDao;
+import com.dao.lah.lahhourseTypeDao;
 import com.entity.Housetype;
 import com.google.gson.Gson;
 
@@ -13,9 +13,9 @@ import javax.annotation.Resource;
 
 @Controller
 @RequestMapping("htype")
-public class houseTypeContoller {
+public class lahhouseTypeContoller {
     @Resource
-    hourseTypeDao dao;
+    lahhourseTypeDao dao;
 
     @RequestMapping("query")
     @ResponseBody
@@ -30,23 +30,21 @@ public class houseTypeContoller {
         return "redirect:query";
     }
     @RequestMapping("del")
+    @ResponseBody
     public String del(Integer id){
         dao.del(id);
-        return "redirect:/query";
-    }
-    
-    @RequestMapping("update")
-    public ModelAndView update(int id) {
-    	Housetype cust = dao.getid(id);
-        ModelAndView mav = new ModelAndView("upd");
-        mav.addObject("c", cust);
-        return mav;
-    }
-
-    // 修改
-    @RequestMapping("upd")
+        return "1";
+	}
+	
+	// 修改
+	@RequestMapping("upd")
     public String upd(Housetype ht){
     	dao.doupd(ht);
         return "redirect:query";
     }
+	
+	@RequestMapping("tupian")
+	public String tupian() {
+		return "front/tupian";
+	}
 }

@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 @Mapper
-public interface hourseTypeDao {
+public interface lahhourseTypeDao {
     public List<Housetype> query();
     int doadd(Housetype ht);
     int doupd(Housetype ht);

@@ -23,30 +23,25 @@ import org.springframework.web.multipart.MultipartFile;
 import com.cloopen.rest.sdk.CCPRestSmsSDK;
 import com.entity.Customers;
 import com.sendMessage.JsonCrudModel;
-import com.service.lah.CustService;
+import com.service.lah.lahCustService;
 
 @Controller
 @RequestMapping("cust")
-public class CustomerController {
+public class lahCustomerController {
 	@Autowired
-    CustService cs;
-	
+    lahCustService cs;
+
 	@RequestMapping("frontHtml")
     public String loginError(){
         return "front/Login";
     }
-	@RequestMapping("fHtml")
-    public String login(){
-        return "front/list";
-    }
-	
     @RequestMapping("userlogin")
     public String Login(HttpServletRequest request,String cname,String password){
             try {
                 List<Customers> list = cs.login(cname, password);
                 if(list.size()==1){
-                	request.getSession().setAttribute("Loginname",cname);
-                    return "front/list";
+                	request.getSession().setAttribute("listcus",list.get(0));                   
+                    return "redirect:/house/housequery2";
                 }else {
                     return "front/error";
                 }
@@ -54,7 +49,7 @@ public class CustomerController {
                 e.printStackTrace();
             }
 
-        return "front/list";
+        return "redirect:/house/housequery2";
     }
     
     @RequestMapping("custadd")
@@ -77,7 +72,7 @@ public class CustomerController {
 			
 		}
         cs.doadd(c);
-        System.out.println(c);
+        
         return "front/Login";
     }
     

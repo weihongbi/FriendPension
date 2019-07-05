@@ -1,16 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
-<mapper namespace="com.dao.lah.houseDaoL">
-	<select id="queryId" resultType="com.entity.House">
-		select * from house h 
-		join homedetails hd on h.homedid=hd.homedid 
-		join homephoto hp on h.hpid=hp.hpid
-		join customers c on h.hid=c.cid
-		where hd.homedid=1
+<mapper namespace="com.dao.lah.lahhouseDao">
+	<select id="queryId" resultType="Map">
+		select *,photo.rests r,photo.parlor p,photo.toilet t,photo.bedroom b,
+		photo.cookhouse c
+		from house hou  LEFT JOIN customers cus  on hou.cid=cus.cid  
+			 LEFT JOIN homedetails h  on hou.homedid=h.homedid  
+			 LEFT JOIN provinces p  on h.provinceId=p.provinceid  
+			 LEFT JOIN cities c  on c.cityid=h.cityid  
+			 LEFT JOIN areas a  on a.areaid=h.areaid  
+			 LEFT JOIN housetype ht   on ht.houseTypeId=h.houseTypeId  
+			 LEFT JOIN rent r   on r.rentid=h.rentid  
+			 LEFT JOIN apartments ap  on ap.Apartmentsid=h.Apartmentsid  
+			 LEFT JOIN toilettype t   on t.toiletTypeId=h.toiletTypeId  
+			 LEFT JOIN pricerule pri  on hou.pruleId=pri.pruleId  
+			 LEFT JOIN homephoto photo on hou.hpid=photo.hpid
+			 join bed  b on b.bedid=h.bedid
+			join bedtype bt on bt.bedTypeId=b.bedTypeId
+			where hou.hid=#{hid}
 	</select>
 	<!-- 前台房屋详情信息展示 -->
 	<select id="queryAll" resultType="Map">
-		select * from house hou  LEFT JOIN customers cus  on hou.cid=cus.cid  
+		select *,photo.rests r,photo.parlor p,photo.toilet t,photo.bedroom b,
+		photo.cookhouse c
+		from house hou  LEFT JOIN customers cus  on hou.cid=cus.cid  
 			 LEFT JOIN homedetails h  on hou.homedid=h.homedid  
 			 LEFT JOIN provinces p  on h.provinceId=p.provinceid  
 			 LEFT JOIN cities c  on c.cityid=h.cityid  
@@ -25,4 +38,37 @@
 			join bedtype bt on bt.bedTypeId=b.bedTypeId
 			
 	</select>
+	<select id="queryOrder" resultType="Map">
+		select *,(select oname from orderstate where oid=7) oname,
+		(select cname from customers c1 
+		where c1.cid=(select cid from house where hid=h.hid )) dname
+		from hostorder ho join customers c on ho.cid=c.cid
+		join orderstate os on ho.states=os.oid join house h on h.hid=ho.hid
+		join homephoto hp on hp.hpid=h.hpid where c.cid not in 
+		(select cid from house)
+	</select>
+	<select id="queryOrderByid" resultType="Map">
+		select *,(select oname from orderstate where oid=os.oid) oname,
+	(select cname from customers c1 
+	where c1.cid=(select cid from house where hid=h.hid )) dname
+	from hostorder ho join customers c on ho.cid=c.cid
+	join orderstate os on ho.states=os.oid join house h on h.hid=ho.hid
+	join homephoto hp on hp.hpid=h.hpid 
+	where c.cid not in (select cid from house) and oid=#{oid}
+	</select>
+		<select id="queryOrderid" resultType="Map">
+		select *,(select oname from orderstate where oid=os.oid) oname,
+	(select cname from customers c1 
+	where c1.cid=(select cid from house where hid=h.hid )) dname
+	from hostorder ho join customers c on ho.cid=c.cid
+	join orderstate os on ho.states=os.oid join house h on h.hid=ho.hid
+	join homephoto hp on hp.hpid=h.hpid 
+	where c.cid not in (select cid from house) and hoid=#{hoid}
+	</select>
+	<update id="upstates" parameterType="com.entity.Hostorder">
+		UPDATE hostorder SET states=8 WHERE hoid=#{hoid}
+	</update>
+	<delete id="deloid" parameterType="com.entity.Hostorder">
+		delete from hostorder where hoid=#{hoid}
+	</delete>
 </mapper>

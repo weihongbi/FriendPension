@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.dao.lah.houseDetailDao;
+import com.dao.lah.lahhouseDetailDao;
 import com.entity.Homedetails;
 
 import java.util.List;
@@ -14,9 +14,9 @@ import javax.annotation.Resource;
 
 @Controller
 @RequestMapping("/hdetails")
-public class houseDetailsContoller {
+public class lahhouseDetailsContoller {
     @Resource
-    houseDetailDao dao;
+    lahhouseDetailDao dao;
 
     @RequestMapping("pagequery")
     public String pagequery() {

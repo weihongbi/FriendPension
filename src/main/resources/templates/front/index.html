@@ -12,9 +12,18 @@
 		        <a href="index.html" class="logo_index">小猪</a>
 		        <span class="slogan_v2">居住自由主义</span>
 		        <ul class="nav_R">
-		           <li><a rel="nofollow" title="" class="show-register-box" href="#">注册</a></li>
-		            <li>&middot;</li>
-		            <li><a rel="nofollow" href="#" >登录</a></li>
+		           		           
+		           
+		           	 <li th:if="${session.listcus.cname!=null}">		            	
+		            	<a rel="nofollow">[[${session.listcus.cname}]]</a>		            
+		            </li>
+		             <li th:if="${session.listcus.cname==null}">		            	
+		            	<a rel="nofollow" th:href="@{/cust/frontHtml}">登录</a>		            
+		            </li>
+		           
+		           
+		            
+		            
 		            <li>&middot;</li>
 		            <li class="current">
 		                <a href="#ongo" class="openTri_R marginR10">短租指南</a>
@@ -114,41 +123,42 @@
 						<a href="#" target="_blank" class="room_hover"></a>
 					</li> -->
 					<li>     
-				  		<img class="img_room"   width="400" height="326" th:src="${list[0].parlor}">
+				  		<img class="img_room"   width="400" height="326" th:src="@{'/img/'+${list[0].parlor}}">
 			    		<span class="img_upCover"></span>
 			    		<div class="rooms_intro">
-			        		<img class="img_user_fd"  th:src="${list[0].picture}">
+			        		<img class="img_user_fd"  th:src="@{'/img/'+${list[0].picture}}">
 			        		<span class="room_name" th:text="${list[0].hname}"></span>
 			        		<span class="index_price" >¥:<em class="bigFont" th:text="${list[0].price}"></em></span>
 			    		</div>
-			   	 		<a href="http://xm.xiaozhu.com/fangzi/93319887403.html" target="_blank" class="room_hover"></a>
+			   	 		<a th:href="'/house/queryid?hid='+${list[0].hid}" target="_blank" class="room_hover"></a>
 					</li>                                 
 					<li>     
-						<img class="img_room" width="400" height="326" th:src="${list[2].parlor}">
+						<img class="img_room" width="400" height="326" th:src="@{'/img/'+${list[2].parlor}}">
     					<span class="img_upCover"></span>
 					    <div class="rooms_intro">
-					        <img class="img_user_fd" lazy_src="finish" th:src="${list[2].picture}">
+					        <img class="img_user_fd" lazy_src="finish" th:src="@{'/img/'+${list[2].picture}}">
 					        <span class="room_name" th:text="${list[2].hname}"></span>
 					        <span class="index_price">¥:<em class="bigFont" th:text="${list[2].price}"></em></span>
 					    </div>
-    					<a href="http://su.xiaozhu.com/fangzi/20084193801.html" target="_blank" class="room_hover"></a>
+    					<a th:href="'/house/queryid?hid='+${list[2].hid}" target="_blank" class="room_hover"></a>
 					</li>                                                                                         
 					<li class="nomargin">         
-						<img class="img_room"  width="400" height="326" th:src="${list[1].parlor}">
+						<img class="img_room"  width="400" height="326" th:src="@{'/img/'+${list[1].parlor}}">
 				    	<div class="rooms_intro city_top">
 				        	<span class="index_price">10000+<em class="bigFont">套</em></span>
 				        	<span class="room_name" th:text="${list[1].hname}"></span>
+				        	<span  th:text="${list[1].city}"></span>
 				    	</div>
-    					<a href="http://gz.xiaozhu.com/" class="room_hover" target="_blank"></a>
+    					<a th:href="'/query2?pageNum=1&city='+${list[0].city}" class="room_hover" target="_blank"></a>
     				</li>   
     				
     				<li class="nomargin">         
-    					<img class="img_room city_big"  width="820" height="326" th:src="${list[4].parlor}"/>
+    					<img class="img_room city_big"  width="820" height="326" th:src="@{'/img/'${list[4].parlor}}"/>
 				    	<div class="rooms_intro city_big">
 				        	<span class="room_name" th:text="${list[4].hname}">美丽鹭岛  ·  厦门</span><br/>
 				        	<span class="index_price">9000+<em class="bigFont">套</em></span>
 				    	</div>
-				    	<a href="http://xm.xiaozhu.com/" class="room_hover" target="_blank"></a>
+				    	<a th:href="'/query2?pageNum=1&city='+${list[1].city}" class="room_hover" target="_blank"></a>
 				    </li>
 				    <li>     
 						<img class="img_room" width="400" height="326" th:src="${list[3].parlor}">
@@ -158,7 +168,7 @@
 					        <span class="room_name" th:text="${list[3].hname}"></span>
 					        <span class="index_price">¥:<em class="bigFont" th:text="${list[3].price}"></em></span>
 					    </div>
-    					<a href="http://su.xiaozhu.com/fangzi/20084193801.html" target="_blank" class="room_hover"></a>
+    					<a th:href="'/house/queryid?hid='+${list[2].hid}" target="_blank" class="room_hover"></a>
 					</li> 
 			    </ul>
 			</div>

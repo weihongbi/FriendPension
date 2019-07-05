@@ -1,6 +1,6 @@
 package com.controller.lah;
 
-import com.dao.lah.ApartmentDAO;
+import com.dao.lah.lahApartmentDAO;
 import com.entity.Apartments;
 import com.google.gson.Gson;
 
@@ -15,9 +15,9 @@ import javax.annotation.Resource;
 
 @Controller
 @RequestMapping("apart")
-public class ApartContoller {
+public class lahApartContoller {
     @Resource
-    ApartmentDAO dao;
+    lahApartmentDAO dao;
 
     @RequestMapping("query")
     @ResponseBody

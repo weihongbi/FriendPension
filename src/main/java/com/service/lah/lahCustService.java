@@ -6,13 +6,13 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.dao.lah.customerDao;
+import com.dao.lah.lahcustomerDao;
 import com.entity.Customers;
 
 @Service
-public class CustService {
+public class lahCustService {
 	@Resource
-	customerDao dao;
+	lahcustomerDao dao;
 	
 	public List<Customers> login(String cname, String password) {
 		return dao.login(cname,password);

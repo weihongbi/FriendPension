@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
-<mapper namespace="com.dao.lah.customerDao">
+<mapper namespace="com.dao.lah.lahcustomerDao">
 	<select id="login" parameterType="com.entity.Customers" resultType="com.entity.Customers">
 		select * from customers 
 		where cname=#{cname} and password=#{password}

@@ -1,11 +1,118 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleleaf.org">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="renderer" content="webkit" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link rel="shortcut icon" href="https://www.xiaozhu.com/favicon.ico"
+	type="image/vnd.microsoft.icon" />
+<link rel="icon" href="https://www.xiaozhu.com/favicon.ico"
+	type="image/vnd.microsoft.icon" />
+<title>发布您的房间</title>
+<link rel="stylesheet" type="text/css"
+	href="//jci.xiaozhustatic1.com/e19061701/xzcss?css=base,header,footer,publishRoomV2,photoScroll,jquery-ui,nyroModal,mysite" />
+	<style type="text/css">
+		.wid{
+			width:70px;
+			border:0 none;
+			text-align:right;
+		}
+		.right{
+			position:absolute;
+			right:1;
+			top:20%;
+			
+		}
+	</style>
+</head>
+<body>
+	<div class="header height56">
+		<div class="top"></div>
+
+		<div class="detail_wrapper">
+			<div class="detail_head clearfix">
+				<a href="http://www.xiaozhu.com" class="xz_logo_detail">小猪</a><span
+					class="slogan_v2 slogan_black"></span>
+				<ul class="nav_R nav_commen">
+					<li class="current"><a href="#ongo" class="openTri_R"
+						rel="nofollow">[[${session.listcus.cname}]]</a></li>
+				</ul>
+			</div>
+			<div id="regSuccessDialog" class="reg_success_box login_register_box"
+				style="display: none;">
+				<div class="">
+					<div class="r_colsed_1" id="closeRegSuccDialogBtn">
+						<span></span>
+					</div>
+					<div id="regSuccInfo"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<span id="sid" style="display: none">[[${session.lists.sid}]]</span>
+	<form style="margin-left: 20px;" action="../hostorder/addOreder"
+		method="post">
+		<div class="h_wrap mt20">
+			<h4 class="h_tit">预订信息</h4>
+			<div class="h_house_info">
+				<ul>
+					<li class="clearfix pb15"><label class="type1 w_103">入住时段：</label>
+						<div class="h_house_r clearfix" style="position: relative;">
+							<div class="clearfix pb5">
+								<input class="h_input_box" name="checktime" id="in"
+									th:value="${session.lists.checkintime}" readonly="readonly"/>至 <input
+									style="width: 80px; height: 35px;" name="leavetime" id="out"
+									th:value="${session.lists.leavetime}" readonly="readonly"/>
+							</div>
+						</div></li>
+
+				</ul>				
+			<div class="right" style=" margin-left:500px; width:350px;height:400px; ">
+				<img style="margin:10px; width:330px;height:210px" th:src="@{'/images/'+${session.list.rests}}"/>
+				<hr/>
+				&nbsp;&nbsp;&nbsp;房租<input style="margin-top:20px;margin-left:195px" name="price" id="price" th:value="${session.list.price}"/>
+				<p style="margin-top:20px;margin-left:14px;width:300px">押金<span style="margin-left:256px" id="ya">[[${session.list.earnest}]]</span></p>
+				<hr/>
+				&nbsp;&nbsp;需在线支付<input style="margin-top:20px;margin-top:10px;margin-left:160px" name="money" id="total"/>
+			</div>
+			</div>
+		</div>
+
+
+		<div class="h_wrap">
+			<h4 class="h_tit">预订人信息</h4>
+			<div class="h_house_info" style="padding-bottom: 10px;">
+				<ul>
+					<li class="clearfix pb15"><label class="type1 w_103">姓名：</label>
+						<div class="h_house_r">
+							<div class="clearfix">
+								<span class="price_con lh40" id="deal">[[${session.listcus.cname}]]</span>
+								<input type="hidden" id="crvp" name="crvp" value='100%' readonly />
+							</div>
+						</div></li>
+					<li class="clearfix pb15" id="oldRule"><label
+						class="type1 w_103">手机号：</label> <span id="renege">[[${session.listcus.phone}]]</span>
+					</li>
+					<li class="clearfix pb15 new_rule" id="newRule"><label
+						class="type1 w_103">身份证号：</label> <span id="rule">[[${session.listcus.idcard}]]</span>
+					</li>
+					<input hidden="hidden" name="cid" th:value="${session.lists.cid}" />
+					<input hidden="hidden" name="hid" th:value="${session.lists.hid}" />
+				</ul>
+			</div>
+		</div>
+		<div class="w_960 pb20 clearfix">
+			<input style="width:145px;text-align: center;" type="button" class="keep_btn yh fl needUserAgree" onclick="del()" value="取消预订"/>
+			<input style="margin-left:450px;width:145px;text-align: center;" type="submit" class="keep_btn yh fl needUserAgree" value="提交订单"/>
+		</div>
+	</form>	
 	<script src="/js/jquery-3.1.1.min.js"></script>
 	<script type="text/javascript">	
-		$(function(){			
+		$(function(){	
+			 $("input").addClass("wid");
 			 var time1 = Date.parse(new Date($("#in").val()));
 			 var time2 = Date.parse(new Date($("#out").val()));
 			 var price = $("#price").val();
@@ -21,19 +128,5 @@
 			});
 		}
 	</script>
-</head>
-<body>
-	<span id="sid" style="display:none">[[${session.lists.sid}]]</span>
-	<span id="ya" style="display: none">[[${session.list.earnest}]]</span>
-	<a onclick="del()">取消预订</a>
-	<form action="../hostorder/addOreder" method="post">
-		房客id:<input name="cid" th:value="${session.lists.cid}"/><br>
-		入住时间:<input name="checktime" id="in" th:value="${session.lists.checkintime}"/><br>
-		离开时间:<input name="leavetime" id="out" th:value="${session.lists.leavetime}"/><br>
-		房源id:<input name="hid" th:value="${session.lists.hid}"/><br>
-		每晚价格:<input name="price" id="price" th:value="${session.list.price}"/><br>
-		总价格:<input name="money" id="total"/><br>		
-		<input type="submit" value="提交订单"/>
-	</form>
 </body>
 </html>

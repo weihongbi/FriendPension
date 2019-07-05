@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Mapper;
 import com.entity.Homedetails;
 
 @Mapper
-public interface houseDetailDao {
+public interface lahhouseDetailDao {
 	List<Homedetails> query();
 	int doadd(Homedetails hd);
 	int doupd(Homedetails hd);

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
-import com.dao.lah.houseDaoL;
+import com.dao.lah.lahhouseDao;
 import com.entity.Hostorder;
 import com.google.gson.Gson;
 import com.service.whb.HostorderService;
@@ -22,7 +22,7 @@ public class HostorderController {
 	@Resource
 	HostorderService service;
 	@Resource
-	houseDaoL dao;
+	lahhouseDao dao;
 	@RequestMapping("queryO")
 	@ResponseBody
 	public String queryO() {
@@ -30,10 +30,9 @@ public class HostorderController {
 		return g.toJson(service.queryO());
 	}
 	@RequestMapping("addOreder")
-	@ResponseBody
 	public String addOreder(Hostorder h) {					
 		service.addOrder(h);		
-		return "1";
+		return "redirect:/pay";
 	}
 	@InitBinder
     public void initBinder(WebDataBinder binder, WebRequest request) {
